@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<car make="XJ6" colour="silver" manufacturer="Jaguar">
+	<engine capacity="31"/>
+	<DVLARecord status="OffRoad" date="1.1.12"/>
+</car>
