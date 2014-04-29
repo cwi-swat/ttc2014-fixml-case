@@ -2,6 +2,7 @@ module OOModel2CSharp
 
 import OOModel;
 import List;
+import Common;
 
 str model2csharp(oomodel(classes)) = intercalate("\n\n", [class2csharpClass(class) | class <- classes]);
 
@@ -20,10 +21,10 @@ str fields2constructor(str className, list[Field] literalFields, list[Field] non
 	"	<className>(<parameters>){ <for (f <- literalFields){>
 	'		this.<f.name> = <f.name>;	<}>
 	'	<for (f <- nonLiteralFields){>
-	'		this.<f.name> = _<f.tipe.className>; <}>
+	'		this.<f.name> = <toParameterName(f.tipe.className)>; <}>
 	'       }"
 	when parLst := ["<nativetypeInCSharp(f.tipe)> <f.name>" |f <- literalFields]
-				   + ["<f.tipe.className> _<f.tipe.className>" |f <- nonLiteralFields],
+				   + ["<f.tipe.className> <toParameterName(f.tipe.className)>" |f <- nonLiteralFields],
 		 parameters := intercalate(", ", parLst);
 		 
 str fields2csharpFields(list[Field] literalFields, list[Field] nonLiteralFields) =

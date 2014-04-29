@@ -1,4 +1,4 @@
-module XML2Model
+module ParseXML
 
 import lang::xml::DOM;
 import IO;

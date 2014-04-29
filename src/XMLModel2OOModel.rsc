@@ -2,6 +2,7 @@ module XMLModel2OOModel
 
 import lang::xml::DOM;
 import OOModel;
+import List;
 
 OOModel xml2oo(document(root)){
 	classes = [];
@@ -13,7 +14,7 @@ OOModel xml2oo(document(root)){
 
 Class element2class(element(_, name, children)) =
 	class(name, nodes2fields(attributes, elements))
-	when attributes := [c | c <- children, c is attribute],
+	when attributes := reverse([c | c <- children, c is attribute]),
 		 elements := [c| c <- children, c is element];
 		 
 list[Field] nodes2fields(list[Node] attributes, list[Node] elements) =
