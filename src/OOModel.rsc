@@ -14,9 +14,5 @@ data Statement = assignment(Ref lhs, Ref rhs);
 
 public Type stringType = tipe("String");
 
-public bool isLiteral(tipe(x)){
-	switch(x){
-		case "String": return true;
-		default: return false;
-	};
-}
+bool isLiteral(tipe("String")) = true;
+default bool isLiteral(Type _) = false;
