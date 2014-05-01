@@ -145,7 +145,7 @@ As we mentioned, the declare-before-use policy of C++ had to be taken into accou
 The \texttt{orderClasses} function uses the \texttt{order} function from the \texttt{analysis::graphs::Graph} module, which computes the topological order of the nodes in a graph. Therefore, the only required task in order to implement the declare-before-use policy was to create a dependency graph between the classes in the model.  The local variable \texttt{depGraph} receives its value from a comprehension that we will explain, as a good example of the advantage of combining Rascal's functional nature and its relational calculus support. Given a set of classes, the comprehension builds a set of tuples (i.e., a binary relation) where its first member is the name of one class being iterated in the first level of iteration, and the second member corresponds to the class name of an object field of such a class. This value is obtained by adding another level of iteration for the object fields of each class.
 
 \section{Concluding Remarks}
-
+Implementing the FIXML case study in Rascal was straightforward, as Rascal was indeed designed for supporting the analysis and transformation of source code artifacts. Because of this, many of the more complex analysis were already provided by standard libraries, e.g., XML parsing and topological sorting. In sum, it took only 179 SLOC to implement the pipeline required to output the code in the three required languages. The most complex part of the assignment was to identify the minimal subset of an OO metamodel that we needed in order to implement this particular use case. By doing that, we avoided unnecessary accidental complexity and conceived a metamodel that was described in just 15 SLOC.
 
 \section{Bibliography}
 
