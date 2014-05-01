@@ -1,0 +1,88 @@
+\documentclass[submission,copyright,creativecommons]{eptcs}
+\providecommand{\event}{TTC 2014} % Name of the event you are submitting to
+\usepackage{breakurl}             % Not needed if you use pdflatex only.
+\usepackage{rascal}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.8]{beramono}
+\title{The TTC 2014 Movie Database Case: Rascal Solution\thanks{This
+    research was supported by the Netherlands Organisation for
+    Scientific Research (NWO) Jacquard Grant ``Next Generation
+    Auditing: Data-Assurance as a service'' (638.001.214).}}
+\author{Pablo Inostroza \and Tijs van der Storm}
+\def\authorrunning{Inostroza and Van der Storm}
+\def\titlerunning{TTC'14: Rascal}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Rascal is meta programming language for processing source code in the broad sense (models, documents, formats, languages, etc.). In this short note we discuss the implementation of the `TTC'14 FIXML to Java, C\# and C++ Case'' in Rascal. In particular we will highlight the challenges and benefits of using a functional programming language for ...
+\end{abstract}
+
+\section{Introduction}
+
+Rascal is a meta programming language for source code analysis and transformation~\cite{Rascal,RascalGTTSE}. 
+Concretely, it is targeted at analyzing and processing any kind of ``source code in the broad sense''; this includes importing, analyzing, transforming, visualizing and generating, models, data files, program code, documentation etc.
+ 
+Although Rascal features a Java-like syntax, it is a functional programming in that all data is immutable (implemented using persistent data structures), and function programming concepts are used throughout: algebraic data types, pattern matching, higher-order functions, comprehensions etc. 
+
+Specifically for the domain of source code manipulation, however, Rascal features powerful primitives for parsing (context-free grammars), traversal (visit statement), relational analysis (transitive closure, image etc.), and code generation (string templates). 
+The standard library includes programming language grammars (e.g., Java), IDE integration
+with Eclipse, numerous importers (e.g. XML, CSV, YAML, JSON etc.) and a rich visualization framework. 
+
+\subsection{The transformation}
+
+The solution transformation has been broken down into the following sub transformations:
+
+\begin{enumerate}
+\item XML text to model of XML metamodel
+\item model of XML metamodel to a metamodel of OO programming languages
+\item OO metamodel to program text (for different OO programming languages)
+\end{enumerate}
+
+We have addressed all these cases as we proceed to explain.
+
+\section{Sub transformation 1: XML text to model of XML metamodel}
+
+
+\section{Sub transformation 2: XML metamodel to OO metamodel}
+
+We have defined an OO metamodel that suits the purpose of this particular task. This means that It is not necessarily comprehensive enough to model a complex OO system, but it serves as an intermediate model from which all the desired output in this context could be generated. 
+
+The following datatypes capture the structure of the OO metamodel:
+%\CAT{Keyword}{alias} Id = \CAT{Keyword}{int};
+\begin{rascal}
+\CAT{Keyword}{data} OOModel = oomodel(\CAT{Keyword}{list}{}[Class] classes);
+\CAT{Keyword}{data} Class = class(\CAT{Keyword}{str} name, \CAT{Keyword}{list}{}[Field] literalFields, \CAT{Keyword}{list}{}[Field] objFields);
+\CAT{Keyword}{data} Type = tipe(\CAT{Keyword}{str} className);
+\CAT{Keyword}{data} Field = objField(Type tipe, \CAT{Keyword}{str} name, \CAT{Keyword}{str} altName, \CAT{Keyword}{list}{}[Field] vals) 
+           | literalField(Type tipe, \CAT{Keyword}{str} name, \CAT{Keyword}{str} altName, \CAT{Keyword}{str} val);
+\CAT{Keyword}{data} Ref = ref(\CAT{Keyword}{str} container, \CAT{Keyword}{str} field) | ref(\CAT{Keyword}{str} name);
+\CAT{Keyword}{data} Statement = assignment(Ref lhs, Ref rhs);
+\end{rascal}
+
+
+
+\section{Concluding Remarks}
+
+The tasks were easy to implement, with little code. The size of the
+implementation is around 130 SLOC, including some helper functions,
+but excluding loading the model from XML which is another 38 SLOC.
+
+Rascal's module system showed its benefits; some tasks could be
+implemented as modular extensions of earlier tasks, combining
+extension of data types (Extension Task 2) and extension of functions
+(Extension Tasks 3 and 4).
+
+Performance: extracting cliques $> 2$ takes longer than 5 minutes on a
+3.3Mb IMDB file. The most probable reason is that
+\texttt{combinations} is slow, even though we use a dynamic
+programming algorithm; it is possible that immutability works against
+us here.
+
+\section{Bibliography}
+
+\nocite{*}
+\bibliographystyle{eptcs}
+\bibliography{generic}
+\end{document}
