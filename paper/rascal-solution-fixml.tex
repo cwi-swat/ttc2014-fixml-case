@@ -87,45 +87,34 @@ Once we have the OO model, the final step is to serialize it as a program in thr
 The main  differences  are related to particular idioms of one implementation in respect to the others, particularly in the case of C++. For instance, although the order in which classes are declared is not relevant in the case of Java and C\#, it  matters in the case C++, given its declare-before-use policy. For this reason, we just present the source code of the Java serialization, and discuss afterwards how we addressed the specific particularity of the C++ transformation.
 
 \begin{rascal}
-\CAT{Keyword}{str} model2java(oomodel(classes)) = 
-    intercalate(\CAT{Constant}{"\textbackslash{}n\textbackslash{}n"}, {}[class2javaClass(class) | class \textless{}- classes]);
-
 \CAT{Keyword}{str} class2javaClass(class(name, literalFields, objFields)) =
-    \CAT{Constant}{"class \textless{}}name\CAT{Constant}{\textgreater{}
-    '\{{}
-    '\textless{}}fields2javaFields(literalFields, objFields)\CAT{Constant}{\textgreater{}
-    '     \textless{}}name\CAT{Constant}{\textgreater{}()\{{}
-    '    \}{}
-    '
-    '\textless{}}fields2constructor(name, literalFields, objFields)\CAT{Constant}{\textgreater{}
+    \CAT{Constant}{"class \textless{}}name\CAT{Constant}{\textgreater{} \{{}
+    '  \textless{}}fields2javaFields(literalFields, objFields)\CAT{Constant}{\textgreater{}
+    '  \textless{}}name\CAT{Constant}{\textgreater{}()\{{} \}{}
+    '  \textless{}}fields2constructor(name, literalFields, objFields)\CAT{Constant}{\textgreater{}
     '\}{}"};
     
 \CAT{Keyword}{str} fields2constructor(\CAT{Keyword}{str} className, \CAT{Keyword}{list}{}[Field] literalFields, \CAT{Keyword}{list}{}[Field] objFields)=
-    \CAT{Constant}{"    \textless{}}className\CAT{Constant}{\textgreater{}(\textless{}}toParameters(literalFields, objFields)\CAT{Constant}{\textgreater{})\{{} 
-    '     \textless{}}\CAT{Keyword}{for} (literalField(\_{}, name, \_{}, \_{}) \textless{}- literalFields)\{{}\CAT{Constant}{\textgreater{}
-    '        this.\textless{}}name\CAT{Constant}{\textgreater{} = \textless{}}name\CAT{Constant}{\textgreater{};    \textless{}}\}{}\CAT{Constant}{\textgreater{}
-    '      \textless{}}\CAT{Keyword}{for} (objField(\_{}, name, altName, \_{}) \textless{}- objFields)\{{}\CAT{Constant}{\textgreater{}
-    '        this.\textless{}}name\CAT{Constant}{\textgreater{} = \textless{}}altName\CAT{Constant}{\textgreater{}; \textless{}}\}{}\CAT{Constant}{\textgreater{}
-    '        \}{}"};
+    \CAT{Constant}{"\textless{}}className\CAT{Constant}{\textgreater{}(\textless{}}toParameters(literalFields, objFields)\CAT{Constant}{\textgreater{})\{{} 
+    '  \textless{}}\CAT{Keyword}{for} (literalField(\_{}, name, \_{}, \_{}) \textless{}- literalFields)\{{}\CAT{Constant}{\textgreater{}
+    '     this.\textless{}}name\CAT{Constant}{\textgreater{} = \textless{}}name\CAT{Constant}{\textgreater{};    
+    '   \textless{}}\}{}\CAT{Constant}{\textgreater{}
+    '   \textless{}}\CAT{Keyword}{for} (objField(\_{}, name, altName, \_{}) \textless{}- objFields)\{{}\CAT{Constant}{\textgreater{}
+    '      this.\textless{}}name\CAT{Constant}{\textgreater{} = \textless{}}altName\CAT{Constant}{\textgreater{}; 
+    '   \textless{}}\}{}\CAT{Constant}{\textgreater{}
+    '\}{}"};
     
-\CAT{Keyword}{str} toParameters(\CAT{Keyword}{list}{}[Field] litFields, \CAT{Keyword}{list}{}[Field] objFields) =
-     intercalate(\CAT{Constant}{", "}, parLst)
-     \CAT{Keyword}{when} parLst
-             := {}[\CAT{Constant}{"\textless{}}cName\CAT{Constant}{\textgreater{} \textless{}}name\CAT{Constant}{\textgreater{}"} |literalField(tipe(cName), name, \_{},  \_{}) \textless{}- litFields]
-               + {}[\CAT{Constant}{"\textless{}}cName\CAT{Constant}{\textgreater{} \textless{}}altName\CAT{Constant}{\textgreater{}"} |objField(tipe(cName), \_{}, altName, \_{}) \textless{}- objFields];
-
 \CAT{Keyword}{str} fields2javaFields(\CAT{Keyword}{list}{}[Field] litFields, \CAT{Keyword}{list}{}[Field] objFields) =
-    \CAT{Constant}{"    \textless{}}\CAT{Keyword}{for} (literalField(tipe, name, \_{}, val) \textless{}- litFields)\{{}\CAT{Constant}{\textgreater{}
-    '    \textless{}}tipe.className\CAT{Constant}{\textgreater{} \textless{}}name\CAT{Constant}{\textgreater{} = \textbackslash{}"\textless{}}val\CAT{Constant}{\textgreater{}\textbackslash{}"; \textless{}}\}{}\CAT{Constant}{\textgreater{}
-    '    \textless{}}\CAT{Keyword}{for} (objField(tipe, name, \_{}, vals) \textless{}- objFields)\{{}\CAT{Constant}{\textgreater{}\textless{}}tipe.className\CAT{Constant}{\textgreater{} \textless{}}name\CAT{Constant}{\textgreater{} =
-    '         new \textless{}}tipe.className\CAT{Constant}{\textgreater{}(\textless{}}toArguments(vals)\CAT{Constant}{\textgreater{});
-    '     \textless{}}\}{}\CAT{Constant}{\textgreater{}"};
-
-\CAT{Keyword}{str} toArguments(\CAT{Keyword}{list}{}[Field] literalFields, \CAT{Keyword}{list}{}[Field] objFields) =
-    intercalate(\CAT{Constant}{", "}, parLst)
-    \CAT{Keyword}{when} parLst := {}[\CAT{Constant}{"\textbackslash{}"\textless{}}val\CAT{Constant}{\textgreater{}\textbackslash{}""} |literalField(\_{}, \_{}, \_{},  val) \textless{}- literalFields]
-                   + {}[\CAT{Constant}{"new \textless{}}cName\CAT{Constant}{\textgreater{}()"} |objField(tipe(cName), \_{}, \_{}, \_{}) \textless{}- objFields];
+    \CAT{Constant}{"\textless{}}\CAT{Keyword}{for} (literalField(tipe, name, \_{}, val) \textless{}- litFields)\{{}\CAT{Constant}{\textgreater{}
+    '  \textless{}}tipe.className\CAT{Constant}{\textgreater{} \textless{}}name\CAT{Constant}{\textgreater{} = \textbackslash{}"\textless{}}val\CAT{Constant}{\textgreater{}\textbackslash{}"; 
+    '\textless{}}\}{}\CAT{Constant}{\textgreater{}
+    '\textless{}}\CAT{Keyword}{for} (objField(tipe, name, \_{}, vals) \textless{}- objFields)\{{}\CAT{Constant}{\textgreater{}
+    '  \textless{}}tipe.className\CAT{Constant}{\textgreater{} \textless{}}name\CAT{Constant}{\textgreater{} = new \textless{}}tipe.className\CAT{Constant}{\textgreater{}(\textless{}}toArguments(vals)\CAT{Constant}{\textgreater{});
+    '\textless{}}\}{}\CAT{Constant}{\textgreater{}"};
 \end{rascal}
+
+toParameters/toArguments (not shown).
+
 
 The most remarkable features of this transformation are the generation of the output by means of the template-like string literals in Rascal. Characteristics like the support of multiline strings, string interpolation (escaping expressions with the < and > characters) and auto-indenting make writing \emph{model-to-text} transformations simple.
 
@@ -145,7 +134,7 @@ As we mentioned, the declare-before-use policy of C++ had to be taken into accou
 The \texttt{orderClasses} function uses the \texttt{order} function from the \texttt{analysis::graphs::Graph} module, which computes the topological order of the nodes in a graph. Therefore, the only required task in order to implement the declare-before-use policy was to create a dependency graph between the classes in the model.  The local variable \texttt{depGraph} receives its value from a comprehension that we will explain, as a good example of the advantage of combining Rascal's functional nature and its relational calculus support. Given a set of classes, the comprehension builds a set of tuples (i.e., a binary relation) where its first member is the name of one class being iterated in the first level of iteration, and the second member corresponds to the class name of an object field of such a class. This value is obtained by adding another level of iteration for the object fields of each class.
 
 \section{Concluding Remarks}
-Implementing the FIXML case study in Rascal was straightforward, as Rascal was indeed designed for supporting the analysis and transformation of source code artifacts. Because of this, many of the more complex analysis were already provided by standard libraries, e.g., XML parsing and topological sorting. In sum, it took only 179 SLOC to implement the pipeline required to output the code in the three required languages. The most complex part of the assignment was to identify the minimal subset of an OO metamodel that we needed in order to implement this particular use case. By doing that, we avoided unnecessary accidental complexity and conceived a metamodel that was described in just 15 SLOC.
+Implementing the FIXML case study in Rascal was straightforward, as Rascal was indeed designed for supporting the analysis and transformation of source code artifacts. Because of this, many of the more complex tasks were already solved using the standard library, e.g., XML parsing and topological sorting. In sum, it took only 179 SLOC to implement the pipeline required to output the code in the three required languages. The most complex part of the assignment was to identify the minimal subset of an OO metamodel that we needed in order to implement this particular use case. By doing that, we avoided unnecessary accidental complexity and conceived a metamodel that was described in just 13 SLOC.
 
 \section{Bibliography}
 
