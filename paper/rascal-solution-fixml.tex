@@ -22,7 +22,11 @@
 \maketitle
 
 \begin{abstract}
-Rascal is a meta programming language for processing source code in the broad sense (models, documents, formats, languages, etc.). In this short note we discuss the implementation of the `TTC'14 FIXML to Java, C\# and C++ Case'' in Rascal. In particular we will highlight the challenges and benefits of using a functional programming language for ...
+Rascal is a meta programming language for processing source code in
+the broad sense (models, documents, formats, languages, etc.). In this
+short note we discuss the implementation of the `TTC'14 FIXML to Java,
+C\# and C++ Case'' in Rascal. In particular we will highlight the use
+of string templates for code generation and relational analysis to deal with dependency-based ordering problems.
 \end{abstract}
 
 \section{Introduction}
@@ -36,15 +40,11 @@ Specifically for the domain of source code manipulation, however, Rascal feature
 The standard library includes programming language grammars (e.g., Java), IDE integration
 with Eclipse, numerous importers (e.g. XML, CSV, YAML, JSON etc.) and a rich visualization framework. 
 
-For this particular case study, we identify the following challenges:
-\begin{itemize}
-\item For the same reason, model transformation amounts  non-destructive rewriting. That is, it is impossible to perform in-place updates. This has benefits for reasoning (locality), but might affect performance.
-\end{itemize}
 
 In the following sections we discuss the realization of the TTC'14 tasks in Rascal. We conclude the paper with some observations and concluding remarks. 
 All code examples  can be found  online at:
 \begin{quote}
-\url{https://github.com/cwi-swat/ttc2014-fixml--case}
+\url{https://github.com/cwi-swat/ttc2014-fixml-case}
 \end{quote}
 
 \section{The transformation}
@@ -56,63 +56,35 @@ As proposed in the description of the case study, the solution transformation ha
 \item model of XML metamodel to a metamodel of OO programming languages
 \item OO metamodel to program text (for different OO programming languages)
 \end{enumerate}
+The first item is readily addressed by Rascal's standard library, which contains a meta model for XML and (de)serialization functions.
+Below we discuss the remaining tasks.
 
-The general approach was to understand what was the sufficient information in order to 
-
-We have addressed all these cases as we proceed to explain.
-
-\subsection{Sub transformation 1: XML text to model of XML metamodel}
-
-Rascal features a XML importer that allows to parse an XML file and map its concrete syntax to a metamodel. Thus, the only necessary code to accomplish this task was this:
-
-\begin{rascal}
-Node parseXMLDOM(\CAT{Keyword}{loc} src) = parseXMLDOMTrim(readFile(src));
-\end{rascal}
-
-For completeness, we present the internal representation of the XML metamodel, whose essence is captured by these datatypes:
-
-\begin{rascal}
-\CAT{Keyword}{data} Node 
-     = document(Node root)
-     | attribute(Namespace namespace, \CAT{Keyword}{str} name, \CAT{Keyword}{str} text)
-     | element(Namespace namespace, \CAT{Keyword}{str} name, \CAT{Keyword}{list}{}[Node] children)
-     | charData(\CAT{Keyword}{str} text)
-     | cdata(\CAT{Keyword}{str} text)
-     | comment(\CAT{Keyword}{str} text)
-     | pi(\CAT{Keyword}{str} target, \CAT{Keyword}{str} text)
-     | entityRef(\CAT{Keyword}{str} name)
-     | charRef(\CAT{Keyword}{int} code)
-     ;  
-          
-\CAT{Keyword}{data} Namespace 
-     = namespace(\CAT{Keyword}{str} prefix, \CAT{Keyword}{str} uri)
-     | none()
-     ;
-\end{rascal}
 
 \subsection{Sub transformation 2: XML metamodel to OO metamodel}
 
-We have defined an OO metamodel that suits the purpose of this particular task. This means that it is not necessarily comprehensive enough to model a complex OO system, but it serves as an intermediate model from which all the desired output in this context could be generated. For instance, it is possible to see that the types for representing fields possess an \texttt{altName} field. This is useful to represent unambiguous parameters in the case of C++ code, as required by the particular code style shown in the description of the use case. Once we understood all the necessary and minimum data requirements in the desired variants of the output, we created the OO metamodel.
+We have defined an OO metamodel that specifically for the purpose of this particular task. 
+This means that it is not  comprehensive enough to model arbitrarily complex OO system, but it serves as an intermediate model from which all the desired output in the context of this task can be generated. 
+For instance, it is possible to see that the types for representing fields possess an \texttt{altName} field. This is needed to represent unambiguous parameters in the case of C++ code, as required by the particular code style shown in the description of the use case. 
 
 The following datatypes capture the structure of the OO metamodel:
 %\CAT{Keyword}{alias} Id = \CAT{Keyword}{int};
 \begin{rascal}
 \CAT{Keyword}{data} OOModel = oomodel(\CAT{Keyword}{list}{}[Class] classes);
 \CAT{Keyword}{data} Class = class(\CAT{Keyword}{str} name, \CAT{Keyword}{list}{}[Field] literalFields, \CAT{Keyword}{list}{}[Field] objFields);
-\CAT{Keyword}{data} Type = tipe(\CAT{Keyword}{str} className);
 \CAT{Keyword}{data} Field = objField(Type tipe, \CAT{Keyword}{str} name, \CAT{Keyword}{str} altName, \CAT{Keyword}{list}{}[Field] vals) 
            | literalField(Type tipe, \CAT{Keyword}{str} name, \CAT{Keyword}{str} altName, \CAT{Keyword}{str} val);
-\CAT{Keyword}{data} Ref = ref(\CAT{Keyword}{str} container, \CAT{Keyword}{str} field) | ref(\CAT{Keyword}{str} name);
-\CAT{Keyword}{data} Statement = assignment(Ref lhs, Ref rhs);
+\CAT{Keyword}{data} Type = tipe(\CAT{Keyword}{str} className);
 \end{rascal}
 
-In order to map a FIXML model to a OO model, it was necessary to bridge the conceptual gap between both by specifying a transformation from a generic XML model to an OO class using the interpretation described in the description of the case study.  This transformation was specified in 75 SLOC of Rascal code.
+An OOModel consists of a list of classes. Each class has a name, a number of literal fields, and a number of object fields. A field can be either a object field or a literal field. The difference is that object fields can have sub fields, whereas literal fields are directly initialized with a (primitive) value. Types are represented by the Type data type. 
+Note that the difference between literal fields and object fields is encoded in the Field type; however, for convenience, the class constructor also distinguishes them explicitly. 
+
+In order to map a FIXML model to a OO model, it was necessary to bridge the conceptual gap between both by specifying a transformation from a generic XML model to an OO class using the interpretation described in the description of the case study. This transformation was specified in 75 SLOC of Rascal code.
 
 \subsection{OO model to program text}
 
-Once we have the OO model, the last step is to \emph{serialize} it as a program in three different OO languages: Java, C\#, and C++. 
-
-These three transformations are quite similar, and the stronger differences they exhibit are related to particular idioms of one implementation in respect to the others, particularly in the case of C++. For instance, although the order in which classes are declared is not relevant in the case of Java and C\#, it definitely matters in the case C++, given its declare-before-use policy. For this reason, we just present the source code of the Java serialization, and discuss afterwards this interesting particularity of the C++ transformation.
+Once we have the OO model, the final step is to serialize it as a program in three different OO languages: Java, C\#, and C++. The three transformations are quite similar.
+The main  differences  are related to particular idioms of one implementation in respect to the others, particularly in the case of C++. For instance, although the order in which classes are declared is not relevant in the case of Java and C\#, it  matters in the case C++, given its declare-before-use policy. For this reason, we just present the source code of the Java serialization, and discuss afterwards how we addressed the specific particularity of the C++ transformation.
 
 \begin{rascal}
 \CAT{Keyword}{str} model2java(oomodel(classes)) = 
