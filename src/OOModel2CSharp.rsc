@@ -5,32 +5,34 @@ import List;
 
 str model2csharp(oomodel(classes)) = intercalate("\n\n", [class2csharpClass(class) | class <- classes]);
 
-str class2csharpClass(class(str name, list[Field] fields)) =
+str class2csharpClass(class(name, litFields, objFields)) =
 	"class <name>{
-	'<fields2csharpFields(literalFields, nonLiteralFields)>
+	'<fields2csharpFields(litFields, objFields)>
 	' 	<name>(){
 	'	}
 	'
-	'<fields2constructor(name, literalFields, nonLiteralFields)>
-	'}"
-	when literalFields := [f | f <- fields, isLiteral(f.tipe)],
-		 nonLiteralFields := fields - literalFields;
+	'<fields2constructor(name, litFields, objFields)>
+	'}";
 	
-str fields2constructor(str className, list[Field] literalFields, list[Field] nonLiteralFields) =
-	"	<className>(<parameters>){ <for (f <- literalFields){>
-	'		this.<f.name> = <f.name>;	<}>
-	'	<for (f <- nonLiteralFields){>
-	'		this.<f.name> = <toParameterName(f.tipe.className)>; <}>
-	'       }"
-	when parLst := ["<nativetypeInCSharp(f.tipe)> <f.name>" |f <- literalFields]
-				   + ["<f.tipe.className> <toParameterName(f.tipe.className)>" |f <- nonLiteralFields],
-		 parameters := intercalate(", ", parLst);
+str fields2constructor(str className, list[Field] litFields, list[Field] objFields) =
+	"	<className>(<toParameters(litFields, objFields)>){ <for (literalField(_, name, _, _) <- litFields){>
+	'		this.<name> = <name>;	<}>
+	'	<for (objField(_, name, altName, _) <- objFields){>
+	'		this.<name> = <altName>; <}>
+	'       }";
+	
+str toParameters(list[Field] litFields, list[Field] objFields) =
+	 intercalate(", ", parLst)
+	 when parLst
+	 		:= ["<nativeTypeInCSharp(cName)> <name>" |literalField(tipe(cName), name, _,  _) <- litFields]
+			   + ["<cName> <altName>" |objField(tipe(cName), _, altName, _) <- objFields];
+
 		 
-str fields2csharpFields(list[Field] literalFields, list[Field] nonLiteralFields) =
-	"	<for (f <- literalFields){>
-	'	<nativetypeInCSharp(f.tipe)> <f.name> = \"<f.val>\"; <}>
-	'	<for (f <- nonLiteralFields){><f.tipe.className> <f.name> = new <f.tipe.className>();
+str fields2csharpFields(list[Field] litFields, list[Field] objFields) =
+	"	<for (literalField(tipe(cName), name, _, val) <- litFields){>
+	'	<nativeTypeInCSharp(cName)> <name> = \"<val>\"; <}>
+	'	<for (objField(tipe(cName), name, altName, _) <- objFields){><cName> <name> = new <cName>();
 	' 	<}>";
 
-str nativetypeInCSharp(tipe("String")) = "string";
+str nativeTypeInCSharp("String") = "string";
 

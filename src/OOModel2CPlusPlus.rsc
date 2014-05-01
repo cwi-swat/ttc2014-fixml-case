@@ -8,8 +8,8 @@ import  analysis::graphs::Graph;
 list[Class] orderClasses(list[Class] classes) =
 	[classesMap[cName] | cName <- reverse(order(depGraph))]
 	when classesMap := (className:c | c:class(className, _, _) <- classes),
-		 depGraph := {<className, field.tipe.className> | class(className, _, objFields) <- classes,
-													 	  field <- objFields};
+		 depGraph := {<className, oName> | class(className, _, oFields) <- classes
+										 , objField(tipe(oName), _, _, _) <- oFields};
 
 str model2cpp(oomodel(classes)) = 
 	intercalate("\n\n", [class2cppClass(class) | class <- orderClasses(classes)]);
