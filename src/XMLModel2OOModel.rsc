@@ -3,7 +3,6 @@ module XMLModel2OOModel
 import lang::xml::DOM;
 import OOModel;
 import List;
-import Relation;
 import Set;
 import Map;
 
@@ -26,7 +25,8 @@ OOModel xml2oo(document(root)){
 	set[str] names = domain(elements);
 	list[Class] classes = [element2class(e) | name <- names
 									        , e := union(elements[name])];
-	map[str, list[Field]] litFieldsMap = (name : litFields | class(name, litFields, _) <- classes);
+	map[str, list[Field]] litFieldsMap = 
+		(name : litFields | class(name, litFields, _) <- classes);
 	list[Class] newClasses =
 		[cl[objFields = [toInitializer(of) | of <- cl.objFields]] | cl<- classes];
 	
