@@ -2,34 +2,34 @@ module OOModel2Java
 
 import OOModel;
 import List;
-import Common;
 
 str model2java(oomodel(classes)) = intercalate("\n\n", [class2javaClass(class) | class <- classes]);
 
-str class2javaClass(class(str name, list[Field] fields)) =
+str class2javaClass(class(name, literalFields, objFields)) =
 	"class <name>{
-	'<fields2javaFields(literalFields, nonLiteralFields)>
+	'<fields2javaFields(literalFields, objFields)>
 	' 	<name>(){
 	'	}
 	'
-	'<fields2constructor(name, literalFields, nonLiteralFields)>
-	'}"
-	when literalFields := [f | f <- fields, isLiteral(f.tipe)],
-		 nonLiteralFields := fields - literalFields;
+	'<fields2constructor(name, literalFields, objFields)>
+	'}";
 	
-str fields2constructor(str className, list[Field] literalFields, list[Field] nonLiteralFields) =
-	"	<className>(<parameters>){ <for (f <- literalFields){>
-	'		this.<f.name> = <f.name>;	<}>
-	'	<for (f <- nonLiteralFields){>
-	'		this.<f.name> = <toParameterName(f.tipe.className)>; <}>
-	'       }"
-	when parLst := ["<f.tipe.className> <f.name>" |f <- literalFields]
-				   + ["<f.tipe.className> <toParameterName(f.tipe.className)>" |f <- nonLiteralFields],
-		 parameters := intercalate(", ", parLst);
-		 
-str fields2javaFields(list[Field] literalFields, list[Field] nonLiteralFields) =
-	"	<for (f <- literalFields){>
-	'	<f.tipe.className> <f.name> = \"<f.val>\"; <}>
-	'	<for (f <- nonLiteralFields){><f.tipe.className> <f.name> = new <f.tipe.className>();
+str fields2constructor(str className, list[Field] literalFields, list[Field] objFields) =
+	"	<className>(<toParameters(literalFields, objFields)>){ <for (literalField(_, name, _, _) <- literalFields){>
+	'		this.<name> = <name>;	<}>
+	'	<for (objField(_, name, altName, _) <- objFields){>
+	'		this.<name> = <altName>; <}>
+	'       }";
+	
+str toParameters(list[Field] literalFields, list[Field] objFields) = intercalate(", ", parLst)
+	when parLst := ["<tipe.className> <name>" |literalField(tipe, name, _,  _) <- literalFields]
+				   + ["<tipe.className> <altName>" |objField(tipe, _, altName, _) <- objFields];
+
+str fields2javaFields(list[Field] literalFields, list[Field] objFields) =
+	"	<for (literalField(tipe, name, _, val) <- literalFields){>
+	'	<tipe.className> <name> = \"<val>\"; <}>
+	'	<for (objField(tipe, name, _, vals) <- objFields){><tipe.className> <name> = new <tipe.className>(<toArguments(vals)>);
 	' 	<}>";
 
+str toArguments(list[Field] literalFields) = intercalate(", ", parLst)
+	when parLst := ["\"<val>\"" |literalField(_, _, _,  val) <- literalFields];

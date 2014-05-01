@@ -2,7 +2,6 @@ module OOModel2CSharp
 
 import OOModel;
 import List;
-import Common;
 
 str model2csharp(oomodel(classes)) = intercalate("\n\n", [class2csharpClass(class) | class <- classes]);
 

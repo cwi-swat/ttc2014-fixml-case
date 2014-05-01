@@ -2,10 +2,18 @@ module OOModel2CPlusPlus
 
 import OOModel;
 import List;
-import String;
-import Common;
+import String; 
+import  analysis::graphs::Graph;
 
-str model2cpp(oomodel(classes)) = intercalate("\n\n", [class2cppClass(class) | class <- classes]);
+list[Class] orderClasses(list[Class] classes) =
+	[classesMap[cName] | cName <- reverse(order(depGraph))]
+	when classesMap := (className:c | c:class(className, _) <- classes),
+		 depGraph := {<className, field.tipe.className> | class(className, fields) <- classes,
+													 	  field <- fields, 
+													      !isLiteral(field.tipe)};
+
+str model2cpp(oomodel(classes)) = 
+	intercalate("\n\n", [class2cppClass(class) | class <- orderClasses(classes)]);
 
 str class2cppClass(class(str name, list[Field] fields)) =
 	"class <name>
