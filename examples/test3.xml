@@ -21,6 +21,6 @@
 </OrderType>
 <Currency Value="USD" />
 <Rule80A Value="A" />
-<Order>
+</Order>
 </ApplicationMessage>
 </FIXMLMessage></FIXML>
