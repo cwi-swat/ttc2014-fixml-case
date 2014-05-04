@@ -22,8 +22,8 @@ OOModel xml2oo(document(root)){
 	visit(root){
 		case e:element(_, name, _): elements[name]? EMPTY += [e];
 	}
-	set[str] names = domain(elements);
-	list[Class] classes = [element2class(e) | name <- names
+	
+	list[Class] classes = [element2class(e) | name <- elements
 									        , e := union(elements[name])];
 	map[str, list[Field]] litFieldsMap = 
 		(name : litFields | class(name, litFields, _) <- classes);
@@ -39,7 +39,7 @@ Node union(list[Node] elements) =
 		 allChildren := ([] | it + cs | element(_, _, cs) <- elements),
 		 allElements := [c | c <- allChildren, c is element],
 		 attsMap := (() | it + as | element(_, _, cs) <- reverse(elements)
-		 						  , as := (n:a | a:attribute(_, n, _) <- cs) );
+		 						  , as := (n:a | a:attribute(_, n, _) <- cs));
 
 map[str name, list[Node] elements] groupElementsByName(list[Node] nodes) {
 	map[str name, list[Node] elements] result = ();
