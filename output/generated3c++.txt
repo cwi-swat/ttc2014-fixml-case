@@ -1,0 +1,332 @@
+class MinQty
+{
+ private:	
+
+	
+ public:
+   MinQty(){ 
+       }
+	MinQty(){
+	 
+	
+       }
+}
+
+class OrderQty
+{
+ private:	
+
+	
+ public:
+   OrderQty(){ 
+       }
+	OrderQty(){
+	 
+	
+       }
+}
+
+class Price
+{
+ private:	
+
+	
+ public:
+   Price(){ 
+       }
+	Price(){
+	 
+	
+       }
+}
+
+class Rule80A
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   Rule80A(){ 
+		Value = "A";	
+       }
+	Rule80A(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class Currency
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   Currency(){ 
+		Value = "USD";	
+       }
+	Currency(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class ClOrdID
+{
+ private:	
+
+	
+ public:
+   ClOrdID(){ 
+       }
+	ClOrdID(){
+	 
+	
+       }
+}
+
+class HandInst
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   HandInst(){ 
+		Value = "2";	
+       }
+	HandInst(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class IDSource
+{
+ private:	
+
+	
+ public:
+   IDSource(){ 
+       }
+	IDSource(){
+	 
+	
+       }
+}
+
+class Side
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   Side(){ 
+		Value = "1";	
+       }
+	Side(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class TransactTime
+{
+ private:	
+
+	
+ public:
+   TransactTime(){ 
+       }
+	TransactTime(){
+	 
+	
+       }
+}
+
+class Symbol
+{
+ private:	
+
+	
+ public:
+   Symbol(){ 
+       }
+	Symbol(){
+	 
+	
+       }
+}
+
+class SecurityID
+{
+ private:	
+
+	
+ public:
+   SecurityID(){ 
+       }
+	SecurityID(){
+	 
+	
+       }
+}
+
+class LimitOrder
+{
+ private:	
+
+	string Value; 
+	Price* Price_object;
+ 	
+ public:
+   LimitOrder(){ 
+		Value = "2";	
+       }
+	LimitOrder(string Value_, Price* Price_){
+	 
+		Value = Value_;	
+	
+		Price_object = Price_; 
+       }
+}
+
+class Instrument
+{
+ private:	
+
+	SecurityID* SecurityID_object;
+ 	Symbol* Symbol_object;
+ 	IDSource* IDSource_object;
+ 	
+ public:
+   Instrument(){ 
+       }
+	Instrument(SecurityID* SecurityID_, Symbol* Symbol_, IDSource* IDSource_){
+	 
+	
+		SecurityID_object = SecurityID_; 
+		Symbol_object = Symbol_; 
+		IDSource_object = IDSource_; 
+       }
+}
+
+class OrderType
+{
+ private:	
+
+	LimitOrder* LimitOrder_object;
+ 	
+ public:
+   OrderType(){ 
+       }
+	OrderType(LimitOrder* LimitOrder_){
+	 
+	
+		LimitOrder_object = LimitOrder_; 
+       }
+}
+
+class OrderQuantity
+{
+ private:	
+
+	OrderQty* OrderQty_object;
+ 	
+ public:
+   OrderQuantity(){ 
+       }
+	OrderQuantity(OrderQty* OrderQty_){
+	 
+	
+		OrderQty_object = OrderQty_; 
+       }
+}
+
+class Order
+{
+ private:	
+
+	Rule80A* Rule80A_object;
+ 	OrderQuantity* OrderQuantity_object;
+ 	OrderType* OrderType_object;
+ 	TransactTime* TransactTime_object;
+ 	Side* Side_object;
+ 	Instrument* Instrument_object;
+ 	HandInst* HandInst_object;
+ 	MinQty* MinQty_object;
+ 	ClOrdID* ClOrdID_object;
+ 	Currency* Currency_object;
+ 	
+ public:
+   Order(){ 
+       }
+	Order(Rule80A* Rule80A_, OrderQuantity* OrderQuantity_, OrderType* OrderType_, TransactTime* TransactTime_, Side* Side_, Instrument* Instrument_, HandInst* HandInst_, MinQty* MinQty_, ClOrdID* ClOrdID_, Currency* Currency_){
+	 
+	
+		Rule80A_object = Rule80A_; 
+		OrderQuantity_object = OrderQuantity_; 
+		OrderType_object = OrderType_; 
+		TransactTime_object = TransactTime_; 
+		Side_object = Side_; 
+		Instrument_object = Instrument_; 
+		HandInst_object = HandInst_; 
+		MinQty_object = MinQty_; 
+		ClOrdID_object = ClOrdID_; 
+		Currency_object = Currency_; 
+       }
+}
+
+class ApplicationMessage
+{
+ private:	
+
+	Order* Order_object;
+ 	
+ public:
+   ApplicationMessage(){ 
+       }
+	ApplicationMessage(Order* Order_){
+	 
+	
+		Order_object = Order_; 
+       }
+}
+
+class FIXMLMessage
+{
+ private:	
+
+	ApplicationMessage* ApplicationMessage_object;
+ 	
+ public:
+   FIXMLMessage(){ 
+       }
+	FIXMLMessage(ApplicationMessage* ApplicationMessage_){
+	 
+	
+		ApplicationMessage_object = ApplicationMessage_; 
+       }
+}
+
+class FIXML
+{
+ private:	
+
+	FIXMLMessage* FIXMLMessage_object;
+ 	
+ public:
+   FIXML(){ 
+       }
+	FIXML(FIXMLMessage* FIXMLMessage_){
+	 
+	
+		FIXMLMessage_object = FIXMLMessage_; 
+       }
+}

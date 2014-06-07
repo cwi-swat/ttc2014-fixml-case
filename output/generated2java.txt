@@ -1,0 +1,288 @@
+class DlvrTo
+{
+	
+	String Sub = "String"; 
+	String Loc = "String"; 
+	String ID = "String"; 
+	
+ 	DlvrTo(){
+	}
+
+	DlvrTo(String Sub, String Loc, String ID){ 
+     
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Sndr
+{
+	
+	String Sub = "String"; 
+	String Loc = "String"; 
+	String ID = "String"; 
+	
+ 	Sndr(){
+	}
+
+	Sndr(String Sub, String Loc, String ID){ 
+     
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Amt
+{
+	
+	String Amt = "0.00"; 
+	String Typ = "FMTM"; 
+	
+ 	Amt(){
+	}
+
+	Amt(String Amt, String Typ){ 
+     
+		this.Amt = Amt;	
+		this.Typ = Typ;	
+	  
+        }
+}
+
+class Qty
+{
+	
+	String Short = "0"; 
+	String Typ = "SOD"; 
+	String Long = "35"; 
+	
+ 	Qty(){
+	}
+
+	Qty(String Short, String Typ, String Long){ 
+     
+		this.Short = Short;	
+		this.Typ = Typ;	
+		this.Long = Long;	
+	  
+        }
+}
+
+class Hdr
+{
+	
+	String PosRsnd = "N"; 
+	String SeqNum = "1002"; 
+	String PosDup = "N"; 
+	String Snt = "2001-12-17T09:30:47-05:00"; 
+	DlvrTo DlvrTo_object =
+		 new DlvrTo();
+ 	Sndr Sndr_object =
+		 new Sndr();
+ 	OnBhlfOf OnBhlfOf_object =
+		 new OnBhlfOf();
+ 	Tgt Tgt_object =
+		 new Tgt();
+ 	
+ 	Hdr(){
+	}
+
+	Hdr(String PosRsnd, String SeqNum, String PosDup, String Snt, DlvrTo DlvrTo_, Sndr Sndr_, OnBhlfOf OnBhlfOf_, Tgt Tgt_){ 
+     
+		this.PosRsnd = PosRsnd;	
+		this.SeqNum = SeqNum;	
+		this.PosDup = PosDup;	
+		this.Snt = Snt;	
+	  
+		this.DlvrTo_object = DlvrTo_; 
+		this.Sndr_object = Sndr_; 
+		this.OnBhlfOf_object = OnBhlfOf_; 
+		this.Tgt_object = Tgt_; 
+        }
+}
+
+class OnBhlfOf
+{
+	
+	String Sub = "String"; 
+	String Loc = "String"; 
+	String ID = "String"; 
+	
+ 	OnBhlfOf(){
+	}
+
+	OnBhlfOf(String Sub, String Loc, String ID){ 
+     
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Pty
+{
+	
+	String R = "21"; 
+	String ID = "OCC"; 
+	Sub Sub_object =
+		 new Sub();
+ 	
+ 	Pty(){
+	}
+
+	Pty(String R, String ID, Sub Sub_){ 
+     
+		this.R = R;	
+		this.ID = ID;	
+	  
+		this.Sub_object = Sub_; 
+        }
+}
+
+class FIXML
+{
+	
+	PosRpt PosRpt_object =
+		 new PosRpt();
+ 	
+ 	FIXML(){
+	}
+
+	FIXML(PosRpt PosRpt_){ 
+     
+	  
+		this.PosRpt_object = PosRpt_; 
+        }
+}
+
+class Instrmt
+{
+	
+	String CFI = "OCASPS"; 
+	String IDSrc = "J"; 
+	String Mult = "100"; 
+	String Sym = "AOL"; 
+	String ID = "KW"; 
+	String StrkCcy = "USD"; 
+	String Mat = "2003-11-22T00:00:00"; 
+	String MMY = "20031122"; 
+	String Strk = "47.50"; 
+	
+ 	Instrmt(){
+	}
+
+	Instrmt(String CFI, String IDSrc, String Mult, String Sym, String ID, String StrkCcy, String Mat, String MMY, String Strk){ 
+     
+		this.CFI = CFI;	
+		this.IDSrc = IDSrc;	
+		this.Mult = Mult;	
+		this.Sym = Sym;	
+		this.ID = ID;	
+		this.StrkCcy = StrkCcy;	
+		this.Mat = Mat;	
+		this.MMY = MMY;	
+		this.Strk = Strk;	
+	  
+        }
+}
+
+class PosRpt
+{
+	
+	String SetPxTyp = "1"; 
+	String BizDt = "2003-09-10T00:00:00"; 
+	String Acct = "1"; 
+	String AcctTyp = "1"; 
+	String ReqTyp = "0"; 
+	String SetPx = "0.00"; 
+	String RptID = "541386431"; 
+	String PriSetPx = "0.00"; 
+	String Rslt = "0"; 
+	String Ccy = "USD"; 
+	Amt Amt_object =
+		 new Amt();
+ 	Hdr Hdr_object =
+		 new Hdr();
+ 	Instrmt Instrmt_object =
+		 new Instrmt();
+ 	Qty Qty_object_1 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_2 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_3 =
+		 new Qty("", "IAS", "10");
+ 	Pty Pty_object_1 =
+		 new Pty("21", "OCC");
+ 	Pty Pty_object_2 =
+		 new Pty("4", "99999");
+ 	Pty Pty_object_3 =
+		 new Pty("38", "C");
+ 	
+ 	PosRpt(){
+	}
+
+	PosRpt(String SetPxTyp, String BizDt, String Acct, String AcctTyp, String ReqTyp, String SetPx, String RptID, String PriSetPx, String Rslt, String Ccy, Amt Amt_, Hdr Hdr_, Instrmt Instrmt_, Qty Qty_1, Qty Qty_2, Qty Qty_3, Pty Pty_1, Pty Pty_2, Pty Pty_3){ 
+     
+		this.SetPxTyp = SetPxTyp;	
+		this.BizDt = BizDt;	
+		this.Acct = Acct;	
+		this.AcctTyp = AcctTyp;	
+		this.ReqTyp = ReqTyp;	
+		this.SetPx = SetPx;	
+		this.RptID = RptID;	
+		this.PriSetPx = PriSetPx;	
+		this.Rslt = Rslt;	
+		this.Ccy = Ccy;	
+	  
+		this.Amt_object = Amt_; 
+		this.Hdr_object = Hdr_; 
+		this.Instrmt_object = Instrmt_; 
+		this.Qty_object_1 = Qty_1; 
+		this.Qty_object_2 = Qty_2; 
+		this.Qty_object_3 = Qty_3; 
+		this.Pty_object_1 = Pty_1; 
+		this.Pty_object_2 = Pty_2; 
+		this.Pty_object_3 = Pty_3; 
+        }
+}
+
+class Tgt
+{
+	
+	String Sub = "String"; 
+	String Loc = "String"; 
+	String ID = "String"; 
+	
+ 	Tgt(){
+	}
+
+	Tgt(String Sub, String Loc, String ID){ 
+     
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Sub
+{
+	
+	String Typ = "2"; 
+	String ID = "ZZZ"; 
+	
+ 	Sub(){
+	}
+
+	Sub(String Typ, String ID){ 
+     
+		this.Typ = Typ;	
+		this.ID = ID;	
+	  
+        }
+}

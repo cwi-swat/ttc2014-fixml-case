@@ -1,0 +1,451 @@
+class Equity
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   Equity(){ 
+		Value = "CS";	
+       }
+	Equity(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class SendingTime
+{
+ private:	
+
+	
+ public:
+   SendingTime(){ 
+       }
+	SendingTime(){
+	 
+	
+       }
+}
+
+class OrderQty
+{
+ private:	
+
+	
+ public:
+   OrderQty(){ 
+       }
+	OrderQty(){
+	 
+	
+       }
+}
+
+class Price
+{
+ private:	
+
+	
+ public:
+   Price(){ 
+       }
+	Price(){
+	 
+	
+       }
+}
+
+class CompID
+{
+ private:	
+
+	
+ public:
+   CompID(){ 
+       }
+	CompID(){
+	 
+	
+       }
+}
+
+class Rule80A
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   Rule80A(){ 
+		Value = "A";	
+       }
+	Rule80A(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class Currency
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   Currency(){ 
+		Value = "USD";	
+       }
+	Currency(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class ClOrdID
+{
+ private:	
+
+	
+ public:
+   ClOrdID(){ 
+       }
+	ClOrdID(){
+	 
+	
+       }
+}
+
+class HandInst
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   HandInst(){ 
+		Value = "2";	
+       }
+	HandInst(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class Side
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   Side(){ 
+		Value = "1";	
+       }
+	Side(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class TransactTime
+{
+ private:	
+
+	
+ public:
+   TransactTime(){ 
+       }
+	TransactTime(){
+	 
+	
+       }
+}
+
+class Symbol
+{
+ private:	
+
+	
+ public:
+   Symbol(){ 
+       }
+	Symbol(){
+	 
+	
+       }
+}
+
+class TimeInForce
+{
+ private:	
+
+	string Value; 
+	
+ public:
+   TimeInForce(){ 
+		Value = "0";	
+       }
+	TimeInForce(string Value_){
+	 
+		Value = Value_;	
+	
+       }
+}
+
+class SubID
+{
+ private:	
+
+	
+ public:
+   SubID(){ 
+       }
+	SubID(){
+	 
+	
+       }
+}
+
+class LimitOrder
+{
+ private:	
+
+	Price* Price_object;
+ 	
+ public:
+   LimitOrder(){ 
+       }
+	LimitOrder(Price* Price_){
+	 
+	
+		Price_object = Price_; 
+       }
+}
+
+class SecurityType
+{
+ private:	
+
+	Equity* Equity_object;
+ 	
+ public:
+   SecurityType(){ 
+       }
+	SecurityType(Equity* Equity_){
+	 
+	
+		Equity_object = Equity_; 
+       }
+}
+
+class OrderDuration
+{
+ private:	
+
+	TimeInForce* TimeInForce_object;
+ 	
+ public:
+   OrderDuration(){ 
+       }
+	OrderDuration(TimeInForce* TimeInForce_){
+	 
+	
+		TimeInForce_object = TimeInForce_; 
+       }
+}
+
+class Instrument
+{
+ private:	
+
+	SecurityType* SecurityType_object;
+ 	Symbol* Symbol_object;
+ 	
+ public:
+   Instrument(){ 
+       }
+	Instrument(SecurityType* SecurityType_, Symbol* Symbol_){
+	 
+	
+		SecurityType_object = SecurityType_; 
+		Symbol_object = Symbol_; 
+       }
+}
+
+class OrderType
+{
+ private:	
+
+	LimitOrder* LimitOrder_object;
+ 	
+ public:
+   OrderType(){ 
+       }
+	OrderType(LimitOrder* LimitOrder_){
+	 
+	
+		LimitOrder_object = LimitOrder_; 
+       }
+}
+
+class OrderQuantity
+{
+ private:	
+
+	OrderQty* OrderQty_object;
+ 	
+ public:
+   OrderQuantity(){ 
+       }
+	OrderQuantity(OrderQty* OrderQty_){
+	 
+	
+		OrderQty_object = OrderQty_; 
+       }
+}
+
+class Target
+{
+ private:	
+
+	SubID* SubID_object;
+ 	CompID* CompID_object;
+ 	
+ public:
+   Target(){ 
+       }
+	Target(SubID* SubID_, CompID* CompID_){
+	 
+	
+		SubID_object = SubID_; 
+		CompID_object = CompID_; 
+       }
+}
+
+class Sender
+{
+ private:	
+
+	SubID* SubID_object;
+ 	CompID* CompID_object;
+ 	
+ public:
+   Sender(){ 
+       }
+	Sender(SubID* SubID_, CompID* CompID_){
+	 
+	
+		SubID_object = SubID_; 
+		CompID_object = CompID_; 
+       }
+}
+
+class Order
+{
+ private:	
+
+	Rule80A* Rule80A_object;
+ 	OrderQuantity* OrderQuantity_object;
+ 	OrderType* OrderType_object;
+ 	TransactTime* TransactTime_object;
+ 	Side* Side_object;
+ 	Instrument* Instrument_object;
+ 	HandInst* HandInst_object;
+ 	ClOrdID* ClOrdID_object;
+ 	OrderDuration* OrderDuration_object;
+ 	Currency* Currency_object;
+ 	
+ public:
+   Order(){ 
+       }
+	Order(Rule80A* Rule80A_, OrderQuantity* OrderQuantity_, OrderType* OrderType_, TransactTime* TransactTime_, Side* Side_, Instrument* Instrument_, HandInst* HandInst_, ClOrdID* ClOrdID_, OrderDuration* OrderDuration_, Currency* Currency_){
+	 
+	
+		Rule80A_object = Rule80A_; 
+		OrderQuantity_object = OrderQuantity_; 
+		OrderType_object = OrderType_; 
+		TransactTime_object = TransactTime_; 
+		Side_object = Side_; 
+		Instrument_object = Instrument_; 
+		HandInst_object = HandInst_; 
+		ClOrdID_object = ClOrdID_; 
+		OrderDuration_object = OrderDuration_; 
+		Currency_object = Currency_; 
+       }
+}
+
+class ApplicationMessage
+{
+ private:	
+
+	Order* Order_object;
+ 	
+ public:
+   ApplicationMessage(){ 
+       }
+	ApplicationMessage(Order* Order_){
+	 
+	
+		Order_object = Order_; 
+       }
+}
+
+class Header
+{
+ private:	
+
+	SendingTime* SendingTime_object;
+ 	Sender* Sender_object;
+ 	Target* Target_object;
+ 	
+ public:
+   Header(){ 
+       }
+	Header(SendingTime* SendingTime_, Sender* Sender_, Target* Target_){
+	 
+	
+		SendingTime_object = SendingTime_; 
+		Sender_object = Sender_; 
+		Target_object = Target_; 
+       }
+}
+
+class FIXMLMessage
+{
+ private:	
+
+	Header* Header_object;
+ 	ApplicationMessage* ApplicationMessage_object;
+ 	
+ public:
+   FIXMLMessage(){ 
+       }
+	FIXMLMessage(Header* Header_, ApplicationMessage* ApplicationMessage_){
+	 
+	
+		Header_object = Header_; 
+		ApplicationMessage_object = ApplicationMessage_; 
+       }
+}
+
+class FIXML
+{
+ private:	
+
+	FIXMLMessage* FIXMLMessage_object;
+ 	
+ public:
+   FIXML(){ 
+       }
+	FIXML(FIXMLMessage* FIXMLMessage_){
+	 
+	
+		FIXMLMessage_object = FIXMLMessage_; 
+       }
+}

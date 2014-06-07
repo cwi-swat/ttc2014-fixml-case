@@ -1,0 +1,1305 @@
+class DlvrTo
+{
+	
+	String Sub = "String"; 
+	String Loc = "String"; 
+	String ID = "String"; 
+	
+ 	DlvrTo(){
+	}
+
+	DlvrTo(String Sub, String Loc, String ID){ 
+     
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Sndr
+{
+	
+	String Sub = "String"; 
+	String Loc = "String"; 
+	String ID = "String"; 
+	
+ 	Sndr(){
+	}
+
+	Sndr(String Sub, String Loc, String ID){ 
+     
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Amt
+{
+	
+	String Amt = "0.00"; 
+	String Typ = "FMTM"; 
+	
+ 	Amt(){
+	}
+
+	Amt(String Amt, String Typ){ 
+     
+		this.Amt = Amt;	
+		this.Typ = Typ;	
+	  
+        }
+}
+
+class Qty
+{
+	
+	String Short = "0"; 
+	String Typ = "SOD"; 
+	String Long = "35"; 
+	
+ 	Qty(){
+	}
+
+	Qty(String Short, String Typ, String Long){ 
+     
+		this.Short = Short;	
+		this.Typ = Typ;	
+		this.Long = Long;	
+	  
+        }
+}
+
+class Hdr
+{
+	
+	String PosRsnd = "N"; 
+	String SeqNum = "1002"; 
+	String PosDup = "N"; 
+	String Snt = "2001-12-17T09:30:47-05:00"; 
+	DlvrTo DlvrTo_object =
+		 new DlvrTo();
+ 	Sndr Sndr_object =
+		 new Sndr();
+ 	OnBhlfOf OnBhlfOf_object =
+		 new OnBhlfOf();
+ 	Tgt Tgt_object =
+		 new Tgt();
+ 	
+ 	Hdr(){
+	}
+
+	Hdr(String PosRsnd, String SeqNum, String PosDup, String Snt, DlvrTo DlvrTo_, Sndr Sndr_, OnBhlfOf OnBhlfOf_, Tgt Tgt_){ 
+     
+		this.PosRsnd = PosRsnd;	
+		this.SeqNum = SeqNum;	
+		this.PosDup = PosDup;	
+		this.Snt = Snt;	
+	  
+		this.DlvrTo_object = DlvrTo_; 
+		this.Sndr_object = Sndr_; 
+		this.OnBhlfOf_object = OnBhlfOf_; 
+		this.Tgt_object = Tgt_; 
+        }
+}
+
+class OnBhlfOf
+{
+	
+	String Sub = "String"; 
+	String Loc = "String"; 
+	String ID = "String"; 
+	
+ 	OnBhlfOf(){
+	}
+
+	OnBhlfOf(String Sub, String Loc, String ID){ 
+     
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Pty
+{
+	
+	String R = "21"; 
+	String ID = "OCC"; 
+	Sub Sub_object =
+		 new Sub();
+ 	
+ 	Pty(){
+	}
+
+	Pty(String R, String ID, Sub Sub_){ 
+     
+		this.R = R;	
+		this.ID = ID;	
+	  
+		this.Sub_object = Sub_; 
+        }
+}
+
+class FIXML
+{
+	
+	PosRpt PosRpt_object =
+		 new PosRpt();
+ 	
+ 	FIXML(){
+	}
+
+	FIXML(PosRpt PosRpt_){ 
+     
+	  
+		this.PosRpt_object = PosRpt_; 
+        }
+}
+
+class Instrmt
+{
+	
+	String CFI = "OCASPS"; 
+	String IDSrc = "J"; 
+	String Mult = "100"; 
+	String Sym = "AOL"; 
+	String ID = "KW"; 
+	String StrkCcy = "USD"; 
+	String Mat = "2003-11-22T00:00:00"; 
+	String MMY = "20031122"; 
+	String Strk = "47.50"; 
+	
+ 	Instrmt(){
+	}
+
+	Instrmt(String CFI, String IDSrc, String Mult, String Sym, String ID, String StrkCcy, String Mat, String MMY, String Strk){ 
+     
+		this.CFI = CFI;	
+		this.IDSrc = IDSrc;	
+		this.Mult = Mult;	
+		this.Sym = Sym;	
+		this.ID = ID;	
+		this.StrkCcy = StrkCcy;	
+		this.Mat = Mat;	
+		this.MMY = MMY;	
+		this.Strk = Strk;	
+	  
+        }
+}
+
+class PosRpt
+{
+	
+	String SetPxTyp = "1"; 
+	String BizDt = "2003-09-10T00:00:00"; 
+	String Acct = "1"; 
+	String AcctTyp = "1"; 
+	String ReqTyp = "0"; 
+	String SetPx = "0.00"; 
+	String RptID = "541386431"; 
+	String PriSetPx = "0.00"; 
+	String Rslt = "0"; 
+	String Ccy = "USD"; 
+	Amt Amt_object =
+		 new Amt();
+ 	Hdr Hdr_object =
+		 new Hdr();
+ 	Instrmt Instrmt_object =
+		 new Instrmt();
+ 	Qty Qty_object_1 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_2 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_3 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_4 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_5 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_6 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_7 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_8 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_9 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_10 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_11 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_12 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_13 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_14 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_15 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_16 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_17 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_18 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_19 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_20 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_21 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_22 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_23 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_24 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_25 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_26 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_27 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_28 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_29 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_30 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_31 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_32 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_33 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_34 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_35 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_36 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_37 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_38 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_39 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_40 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_41 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_42 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_43 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_44 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_45 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_46 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_47 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_48 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_49 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_50 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_51 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_52 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_53 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_54 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_55 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_56 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_57 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_58 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_59 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_60 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_61 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_62 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_63 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_64 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_65 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_66 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_67 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_68 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_69 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_70 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_71 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_72 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_73 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_74 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_75 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_76 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_77 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_78 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_79 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_80 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_81 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_82 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_83 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_84 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_85 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_86 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_87 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_88 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_89 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_90 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_91 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_92 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_93 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_94 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_95 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_96 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_97 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_98 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_99 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_100 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_101 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_102 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_103 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_104 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_105 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_106 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_107 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_108 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_109 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_110 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_111 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_112 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_113 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_114 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_115 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_116 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_117 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_118 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_119 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_120 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_121 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_122 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_123 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_124 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_125 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_126 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_127 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_128 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_129 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_130 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_131 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_132 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_133 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_134 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_135 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_136 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_137 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_138 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_139 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_140 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_141 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_142 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_143 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_144 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_145 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_146 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_147 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_148 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_149 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_150 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_151 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_152 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_153 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_154 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_155 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_156 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_157 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_158 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_159 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_160 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_161 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_162 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_163 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_164 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_165 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_166 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_167 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_168 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_169 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_170 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_171 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_172 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_173 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_174 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_175 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_176 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_177 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_178 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_179 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_180 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_181 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_182 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_183 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_184 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_185 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_186 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_187 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_188 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_189 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_190 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_191 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_192 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_193 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_194 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_195 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_196 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_197 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_198 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_199 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_200 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_201 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_202 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_203 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_204 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_205 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_206 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_207 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_208 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_209 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_210 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_211 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_212 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_213 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_214 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_215 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_216 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_217 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_218 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_219 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_220 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_221 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_222 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_223 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_224 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_225 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_226 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_227 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_228 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_229 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_230 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_231 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_232 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_233 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_234 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_235 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_236 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_237 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_238 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_239 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_240 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_241 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_242 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_243 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_244 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_245 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_246 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_247 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_248 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_249 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_250 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_251 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_252 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_253 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_254 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_255 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_256 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_257 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_258 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_259 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_260 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_261 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_262 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_263 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_264 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_265 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_266 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_267 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_268 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_269 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_270 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_271 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_272 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_273 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_274 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_275 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_276 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_277 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_278 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_279 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_280 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_281 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_282 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_283 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_284 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_285 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_286 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_287 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_288 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_289 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_290 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_291 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_292 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_293 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_294 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_295 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_296 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_297 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_298 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_299 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_300 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_301 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_302 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_303 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_304 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_305 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_306 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_307 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_308 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_309 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_310 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_311 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_312 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_313 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_314 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_315 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_316 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_317 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_318 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_319 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_320 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_321 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_322 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_323 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_324 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_325 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_326 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_327 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_328 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_329 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_330 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_331 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_332 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_333 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_334 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_335 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_336 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_337 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_338 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_339 =
+		 new Qty("", "IAS", "10");
+ 	Qty Qty_object_340 =
+		 new Qty("0", "SOD", "35");
+ 	Qty Qty_object_341 =
+		 new Qty("10", "FIN", "20");
+ 	Qty Qty_object_342 =
+		 new Qty("", "IAS", "10");
+ 	Pty Pty_object_1 =
+		 new Pty("21", "OCC");
+ 	Pty Pty_object_2 =
+		 new Pty("4", "99999");
+ 	Pty Pty_object_3 =
+		 new Pty("38", "C");
+ 	
+ 	PosRpt(){
+	}
+
+	PosRpt(String SetPxTyp, String BizDt, String Acct, String AcctTyp, String ReqTyp, String SetPx, String RptID, String PriSetPx, String Rslt, String Ccy, Amt Amt_, Hdr Hdr_, Instrmt Instrmt_, Qty Qty_1, Qty Qty_2, Qty Qty_3, Qty Qty_4, Qty Qty_5, Qty Qty_6, Qty Qty_7, Qty Qty_8, Qty Qty_9, Qty Qty_10, Qty Qty_11, Qty Qty_12, Qty Qty_13, Qty Qty_14, Qty Qty_15, Qty Qty_16, Qty Qty_17, Qty Qty_18, Qty Qty_19, Qty Qty_20, Qty Qty_21, Qty Qty_22, Qty Qty_23, Qty Qty_24, Qty Qty_25, Qty Qty_26, Qty Qty_27, Qty Qty_28, Qty Qty_29, Qty Qty_30, Qty Qty_31, Qty Qty_32, Qty Qty_33, Qty Qty_34, Qty Qty_35, Qty Qty_36, Qty Qty_37, Qty Qty_38, Qty Qty_39, Qty Qty_40, Qty Qty_41, Qty Qty_42, Qty Qty_43, Qty Qty_44, Qty Qty_45, Qty Qty_46, Qty Qty_47, Qty Qty_48, Qty Qty_49, Qty Qty_50, Qty Qty_51, Qty Qty_52, Qty Qty_53, Qty Qty_54, Qty Qty_55, Qty Qty_56, Qty Qty_57, Qty Qty_58, Qty Qty_59, Qty Qty_60, Qty Qty_61, Qty Qty_62, Qty Qty_63, Qty Qty_64, Qty Qty_65, Qty Qty_66, Qty Qty_67, Qty Qty_68, Qty Qty_69, Qty Qty_70, Qty Qty_71, Qty Qty_72, Qty Qty_73, Qty Qty_74, Qty Qty_75, Qty Qty_76, Qty Qty_77, Qty Qty_78, Qty Qty_79, Qty Qty_80, Qty Qty_81, Qty Qty_82, Qty Qty_83, Qty Qty_84, Qty Qty_85, Qty Qty_86, Qty Qty_87, Qty Qty_88, Qty Qty_89, Qty Qty_90, Qty Qty_91, Qty Qty_92, Qty Qty_93, Qty Qty_94, Qty Qty_95, Qty Qty_96, Qty Qty_97, Qty Qty_98, Qty Qty_99, Qty Qty_100, Qty Qty_101, Qty Qty_102, Qty Qty_103, Qty Qty_104, Qty Qty_105, Qty Qty_106, Qty Qty_107, Qty Qty_108, Qty Qty_109, Qty Qty_110, Qty Qty_111, Qty Qty_112, Qty Qty_113, Qty Qty_114, Qty Qty_115, Qty Qty_116, Qty Qty_117, Qty Qty_118, Qty Qty_119, Qty Qty_120, Qty Qty_121, Qty Qty_122, Qty Qty_123, Qty Qty_124, Qty Qty_125, Qty Qty_126, Qty Qty_127, Qty Qty_128, Qty Qty_129, Qty Qty_130, Qty Qty_131, Qty Qty_132, Qty Qty_133, Qty Qty_134, Qty Qty_135, Qty Qty_136, Qty Qty_137, Qty Qty_138, Qty Qty_139, Qty Qty_140, Qty Qty_141, Qty Qty_142, Qty Qty_143, Qty Qty_144, Qty Qty_145, Qty Qty_146, Qty Qty_147, Qty Qty_148, Qty Qty_149, Qty Qty_150, Qty Qty_151, Qty Qty_152, Qty Qty_153, Qty Qty_154, Qty Qty_155, Qty Qty_156, Qty Qty_157, Qty Qty_158, Qty Qty_159, Qty Qty_160, Qty Qty_161, Qty Qty_162, Qty Qty_163, Qty Qty_164, Qty Qty_165, Qty Qty_166, Qty Qty_167, Qty Qty_168, Qty Qty_169, Qty Qty_170, Qty Qty_171, Qty Qty_172, Qty Qty_173, Qty Qty_174, Qty Qty_175, Qty Qty_176, Qty Qty_177, Qty Qty_178, Qty Qty_179, Qty Qty_180, Qty Qty_181, Qty Qty_182, Qty Qty_183, Qty Qty_184, Qty Qty_185, Qty Qty_186, Qty Qty_187, Qty Qty_188, Qty Qty_189, Qty Qty_190, Qty Qty_191, Qty Qty_192, Qty Qty_193, Qty Qty_194, Qty Qty_195, Qty Qty_196, Qty Qty_197, Qty Qty_198, Qty Qty_199, Qty Qty_200, Qty Qty_201, Qty Qty_202, Qty Qty_203, Qty Qty_204, Qty Qty_205, Qty Qty_206, Qty Qty_207, Qty Qty_208, Qty Qty_209, Qty Qty_210, Qty Qty_211, Qty Qty_212, Qty Qty_213, Qty Qty_214, Qty Qty_215, Qty Qty_216, Qty Qty_217, Qty Qty_218, Qty Qty_219, Qty Qty_220, Qty Qty_221, Qty Qty_222, Qty Qty_223, Qty Qty_224, Qty Qty_225, Qty Qty_226, Qty Qty_227, Qty Qty_228, Qty Qty_229, Qty Qty_230, Qty Qty_231, Qty Qty_232, Qty Qty_233, Qty Qty_234, Qty Qty_235, Qty Qty_236, Qty Qty_237, Qty Qty_238, Qty Qty_239, Qty Qty_240, Qty Qty_241, Qty Qty_242, Qty Qty_243, Qty Qty_244, Qty Qty_245, Qty Qty_246, Qty Qty_247, Qty Qty_248, Qty Qty_249, Qty Qty_250, Qty Qty_251, Qty Qty_252, Qty Qty_253, Qty Qty_254, Qty Qty_255, Qty Qty_256, Qty Qty_257, Qty Qty_258, Qty Qty_259, Qty Qty_260, Qty Qty_261, Qty Qty_262, Qty Qty_263, Qty Qty_264, Qty Qty_265, Qty Qty_266, Qty Qty_267, Qty Qty_268, Qty Qty_269, Qty Qty_270, Qty Qty_271, Qty Qty_272, Qty Qty_273, Qty Qty_274, Qty Qty_275, Qty Qty_276, Qty Qty_277, Qty Qty_278, Qty Qty_279, Qty Qty_280, Qty Qty_281, Qty Qty_282, Qty Qty_283, Qty Qty_284, Qty Qty_285, Qty Qty_286, Qty Qty_287, Qty Qty_288, Qty Qty_289, Qty Qty_290, Qty Qty_291, Qty Qty_292, Qty Qty_293, Qty Qty_294, Qty Qty_295, Qty Qty_296, Qty Qty_297, Qty Qty_298, Qty Qty_299, Qty Qty_300, Qty Qty_301, Qty Qty_302, Qty Qty_303, Qty Qty_304, Qty Qty_305, Qty Qty_306, Qty Qty_307, Qty Qty_308, Qty Qty_309, Qty Qty_310, Qty Qty_311, Qty Qty_312, Qty Qty_313, Qty Qty_314, Qty Qty_315, Qty Qty_316, Qty Qty_317, Qty Qty_318, Qty Qty_319, Qty Qty_320, Qty Qty_321, Qty Qty_322, Qty Qty_323, Qty Qty_324, Qty Qty_325, Qty Qty_326, Qty Qty_327, Qty Qty_328, Qty Qty_329, Qty Qty_330, Qty Qty_331, Qty Qty_332, Qty Qty_333, Qty Qty_334, Qty Qty_335, Qty Qty_336, Qty Qty_337, Qty Qty_338, Qty Qty_339, Qty Qty_340, Qty Qty_341, Qty Qty_342, Pty Pty_1, Pty Pty_2, Pty Pty_3){ 
+     
+		this.SetPxTyp = SetPxTyp;	
+		this.BizDt = BizDt;	
+		this.Acct = Acct;	
+		this.AcctTyp = AcctTyp;	
+		this.ReqTyp = ReqTyp;	
+		this.SetPx = SetPx;	
+		this.RptID = RptID;	
+		this.PriSetPx = PriSetPx;	
+		this.Rslt = Rslt;	
+		this.Ccy = Ccy;	
+	  
+		this.Amt_object = Amt_; 
+		this.Hdr_object = Hdr_; 
+		this.Instrmt_object = Instrmt_; 
+		this.Qty_object_1 = Qty_1; 
+		this.Qty_object_2 = Qty_2; 
+		this.Qty_object_3 = Qty_3; 
+		this.Qty_object_4 = Qty_4; 
+		this.Qty_object_5 = Qty_5; 
+		this.Qty_object_6 = Qty_6; 
+		this.Qty_object_7 = Qty_7; 
+		this.Qty_object_8 = Qty_8; 
+		this.Qty_object_9 = Qty_9; 
+		this.Qty_object_10 = Qty_10; 
+		this.Qty_object_11 = Qty_11; 
+		this.Qty_object_12 = Qty_12; 
+		this.Qty_object_13 = Qty_13; 
+		this.Qty_object_14 = Qty_14; 
+		this.Qty_object_15 = Qty_15; 
+		this.Qty_object_16 = Qty_16; 
+		this.Qty_object_17 = Qty_17; 
+		this.Qty_object_18 = Qty_18; 
+		this.Qty_object_19 = Qty_19; 
+		this.Qty_object_20 = Qty_20; 
+		this.Qty_object_21 = Qty_21; 
+		this.Qty_object_22 = Qty_22; 
+		this.Qty_object_23 = Qty_23; 
+		this.Qty_object_24 = Qty_24; 
+		this.Qty_object_25 = Qty_25; 
+		this.Qty_object_26 = Qty_26; 
+		this.Qty_object_27 = Qty_27; 
+		this.Qty_object_28 = Qty_28; 
+		this.Qty_object_29 = Qty_29; 
+		this.Qty_object_30 = Qty_30; 
+		this.Qty_object_31 = Qty_31; 
+		this.Qty_object_32 = Qty_32; 
+		this.Qty_object_33 = Qty_33; 
+		this.Qty_object_34 = Qty_34; 
+		this.Qty_object_35 = Qty_35; 
+		this.Qty_object_36 = Qty_36; 
+		this.Qty_object_37 = Qty_37; 
+		this.Qty_object_38 = Qty_38; 
+		this.Qty_object_39 = Qty_39; 
+		this.Qty_object_40 = Qty_40; 
+		this.Qty_object_41 = Qty_41; 
+		this.Qty_object_42 = Qty_42; 
+		this.Qty_object_43 = Qty_43; 
+		this.Qty_object_44 = Qty_44; 
+		this.Qty_object_45 = Qty_45; 
+		this.Qty_object_46 = Qty_46; 
+		this.Qty_object_47 = Qty_47; 
+		this.Qty_object_48 = Qty_48; 
+		this.Qty_object_49 = Qty_49; 
+		this.Qty_object_50 = Qty_50; 
+		this.Qty_object_51 = Qty_51; 
+		this.Qty_object_52 = Qty_52; 
+		this.Qty_object_53 = Qty_53; 
+		this.Qty_object_54 = Qty_54; 
+		this.Qty_object_55 = Qty_55; 
+		this.Qty_object_56 = Qty_56; 
+		this.Qty_object_57 = Qty_57; 
+		this.Qty_object_58 = Qty_58; 
+		this.Qty_object_59 = Qty_59; 
+		this.Qty_object_60 = Qty_60; 
+		this.Qty_object_61 = Qty_61; 
+		this.Qty_object_62 = Qty_62; 
+		this.Qty_object_63 = Qty_63; 
+		this.Qty_object_64 = Qty_64; 
+		this.Qty_object_65 = Qty_65; 
+		this.Qty_object_66 = Qty_66; 
+		this.Qty_object_67 = Qty_67; 
+		this.Qty_object_68 = Qty_68; 
+		this.Qty_object_69 = Qty_69; 
+		this.Qty_object_70 = Qty_70; 
+		this.Qty_object_71 = Qty_71; 
+		this.Qty_object_72 = Qty_72; 
+		this.Qty_object_73 = Qty_73; 
+		this.Qty_object_74 = Qty_74; 
+		this.Qty_object_75 = Qty_75; 
+		this.Qty_object_76 = Qty_76; 
+		this.Qty_object_77 = Qty_77; 
+		this.Qty_object_78 = Qty_78; 
+		this.Qty_object_79 = Qty_79; 
+		this.Qty_object_80 = Qty_80; 
+		this.Qty_object_81 = Qty_81; 
+		this.Qty_object_82 = Qty_82; 
+		this.Qty_object_83 = Qty_83; 
+		this.Qty_object_84 = Qty_84; 
+		this.Qty_object_85 = Qty_85; 
+		this.Qty_object_86 = Qty_86; 
+		this.Qty_object_87 = Qty_87; 
+		this.Qty_object_88 = Qty_88; 
+		this.Qty_object_89 = Qty_89; 
+		this.Qty_object_90 = Qty_90; 
+		this.Qty_object_91 = Qty_91; 
+		this.Qty_object_92 = Qty_92; 
+		this.Qty_object_93 = Qty_93; 
+		this.Qty_object_94 = Qty_94; 
+		this.Qty_object_95 = Qty_95; 
+		this.Qty_object_96 = Qty_96; 
+		this.Qty_object_97 = Qty_97; 
+		this.Qty_object_98 = Qty_98; 
+		this.Qty_object_99 = Qty_99; 
+		this.Qty_object_100 = Qty_100; 
+		this.Qty_object_101 = Qty_101; 
+		this.Qty_object_102 = Qty_102; 
+		this.Qty_object_103 = Qty_103; 
+		this.Qty_object_104 = Qty_104; 
+		this.Qty_object_105 = Qty_105; 
+		this.Qty_object_106 = Qty_106; 
+		this.Qty_object_107 = Qty_107; 
+		this.Qty_object_108 = Qty_108; 
+		this.Qty_object_109 = Qty_109; 
+		this.Qty_object_110 = Qty_110; 
+		this.Qty_object_111 = Qty_111; 
+		this.Qty_object_112 = Qty_112; 
+		this.Qty_object_113 = Qty_113; 
+		this.Qty_object_114 = Qty_114; 
+		this.Qty_object_115 = Qty_115; 
+		this.Qty_object_116 = Qty_116; 
+		this.Qty_object_117 = Qty_117; 
+		this.Qty_object_118 = Qty_118; 
+		this.Qty_object_119 = Qty_119; 
+		this.Qty_object_120 = Qty_120; 
+		this.Qty_object_121 = Qty_121; 
+		this.Qty_object_122 = Qty_122; 
+		this.Qty_object_123 = Qty_123; 
+		this.Qty_object_124 = Qty_124; 
+		this.Qty_object_125 = Qty_125; 
+		this.Qty_object_126 = Qty_126; 
+		this.Qty_object_127 = Qty_127; 
+		this.Qty_object_128 = Qty_128; 
+		this.Qty_object_129 = Qty_129; 
+		this.Qty_object_130 = Qty_130; 
+		this.Qty_object_131 = Qty_131; 
+		this.Qty_object_132 = Qty_132; 
+		this.Qty_object_133 = Qty_133; 
+		this.Qty_object_134 = Qty_134; 
+		this.Qty_object_135 = Qty_135; 
+		this.Qty_object_136 = Qty_136; 
+		this.Qty_object_137 = Qty_137; 
+		this.Qty_object_138 = Qty_138; 
+		this.Qty_object_139 = Qty_139; 
+		this.Qty_object_140 = Qty_140; 
+		this.Qty_object_141 = Qty_141; 
+		this.Qty_object_142 = Qty_142; 
+		this.Qty_object_143 = Qty_143; 
+		this.Qty_object_144 = Qty_144; 
+		this.Qty_object_145 = Qty_145; 
+		this.Qty_object_146 = Qty_146; 
+		this.Qty_object_147 = Qty_147; 
+		this.Qty_object_148 = Qty_148; 
+		this.Qty_object_149 = Qty_149; 
+		this.Qty_object_150 = Qty_150; 
+		this.Qty_object_151 = Qty_151; 
+		this.Qty_object_152 = Qty_152; 
+		this.Qty_object_153 = Qty_153; 
+		this.Qty_object_154 = Qty_154; 
+		this.Qty_object_155 = Qty_155; 
+		this.Qty_object_156 = Qty_156; 
+		this.Qty_object_157 = Qty_157; 
+		this.Qty_object_158 = Qty_158; 
+		this.Qty_object_159 = Qty_159; 
+		this.Qty_object_160 = Qty_160; 
+		this.Qty_object_161 = Qty_161; 
+		this.Qty_object_162 = Qty_162; 
+		this.Qty_object_163 = Qty_163; 
+		this.Qty_object_164 = Qty_164; 
+		this.Qty_object_165 = Qty_165; 
+		this.Qty_object_166 = Qty_166; 
+		this.Qty_object_167 = Qty_167; 
+		this.Qty_object_168 = Qty_168; 
+		this.Qty_object_169 = Qty_169; 
+		this.Qty_object_170 = Qty_170; 
+		this.Qty_object_171 = Qty_171; 
+		this.Qty_object_172 = Qty_172; 
+		this.Qty_object_173 = Qty_173; 
+		this.Qty_object_174 = Qty_174; 
+		this.Qty_object_175 = Qty_175; 
+		this.Qty_object_176 = Qty_176; 
+		this.Qty_object_177 = Qty_177; 
+		this.Qty_object_178 = Qty_178; 
+		this.Qty_object_179 = Qty_179; 
+		this.Qty_object_180 = Qty_180; 
+		this.Qty_object_181 = Qty_181; 
+		this.Qty_object_182 = Qty_182; 
+		this.Qty_object_183 = Qty_183; 
+		this.Qty_object_184 = Qty_184; 
+		this.Qty_object_185 = Qty_185; 
+		this.Qty_object_186 = Qty_186; 
+		this.Qty_object_187 = Qty_187; 
+		this.Qty_object_188 = Qty_188; 
+		this.Qty_object_189 = Qty_189; 
+		this.Qty_object_190 = Qty_190; 
+		this.Qty_object_191 = Qty_191; 
+		this.Qty_object_192 = Qty_192; 
+		this.Qty_object_193 = Qty_193; 
+		this.Qty_object_194 = Qty_194; 
+		this.Qty_object_195 = Qty_195; 
+		this.Qty_object_196 = Qty_196; 
+		this.Qty_object_197 = Qty_197; 
+		this.Qty_object_198 = Qty_198; 
+		this.Qty_object_199 = Qty_199; 
+		this.Qty_object_200 = Qty_200; 
+		this.Qty_object_201 = Qty_201; 
+		this.Qty_object_202 = Qty_202; 
+		this.Qty_object_203 = Qty_203; 
+		this.Qty_object_204 = Qty_204; 
+		this.Qty_object_205 = Qty_205; 
+		this.Qty_object_206 = Qty_206; 
+		this.Qty_object_207 = Qty_207; 
+		this.Qty_object_208 = Qty_208; 
+		this.Qty_object_209 = Qty_209; 
+		this.Qty_object_210 = Qty_210; 
+		this.Qty_object_211 = Qty_211; 
+		this.Qty_object_212 = Qty_212; 
+		this.Qty_object_213 = Qty_213; 
+		this.Qty_object_214 = Qty_214; 
+		this.Qty_object_215 = Qty_215; 
+		this.Qty_object_216 = Qty_216; 
+		this.Qty_object_217 = Qty_217; 
+		this.Qty_object_218 = Qty_218; 
+		this.Qty_object_219 = Qty_219; 
+		this.Qty_object_220 = Qty_220; 
+		this.Qty_object_221 = Qty_221; 
+		this.Qty_object_222 = Qty_222; 
+		this.Qty_object_223 = Qty_223; 
+		this.Qty_object_224 = Qty_224; 
+		this.Qty_object_225 = Qty_225; 
+		this.Qty_object_226 = Qty_226; 
+		this.Qty_object_227 = Qty_227; 
+		this.Qty_object_228 = Qty_228; 
+		this.Qty_object_229 = Qty_229; 
+		this.Qty_object_230 = Qty_230; 
+		this.Qty_object_231 = Qty_231; 
+		this.Qty_object_232 = Qty_232; 
+		this.Qty_object_233 = Qty_233; 
+		this.Qty_object_234 = Qty_234; 
+		this.Qty_object_235 = Qty_235; 
+		this.Qty_object_236 = Qty_236; 
+		this.Qty_object_237 = Qty_237; 
+		this.Qty_object_238 = Qty_238; 
+		this.Qty_object_239 = Qty_239; 
+		this.Qty_object_240 = Qty_240; 
+		this.Qty_object_241 = Qty_241; 
+		this.Qty_object_242 = Qty_242; 
+		this.Qty_object_243 = Qty_243; 
+		this.Qty_object_244 = Qty_244; 
+		this.Qty_object_245 = Qty_245; 
+		this.Qty_object_246 = Qty_246; 
+		this.Qty_object_247 = Qty_247; 
+		this.Qty_object_248 = Qty_248; 
+		this.Qty_object_249 = Qty_249; 
+		this.Qty_object_250 = Qty_250; 
+		this.Qty_object_251 = Qty_251; 
+		this.Qty_object_252 = Qty_252; 
+		this.Qty_object_253 = Qty_253; 
+		this.Qty_object_254 = Qty_254; 
+		this.Qty_object_255 = Qty_255; 
+		this.Qty_object_256 = Qty_256; 
+		this.Qty_object_257 = Qty_257; 
+		this.Qty_object_258 = Qty_258; 
+		this.Qty_object_259 = Qty_259; 
+		this.Qty_object_260 = Qty_260; 
+		this.Qty_object_261 = Qty_261; 
+		this.Qty_object_262 = Qty_262; 
+		this.Qty_object_263 = Qty_263; 
+		this.Qty_object_264 = Qty_264; 
+		this.Qty_object_265 = Qty_265; 
+		this.Qty_object_266 = Qty_266; 
+		this.Qty_object_267 = Qty_267; 
+		this.Qty_object_268 = Qty_268; 
+		this.Qty_object_269 = Qty_269; 
+		this.Qty_object_270 = Qty_270; 
+		this.Qty_object_271 = Qty_271; 
+		this.Qty_object_272 = Qty_272; 
+		this.Qty_object_273 = Qty_273; 
+		this.Qty_object_274 = Qty_274; 
+		this.Qty_object_275 = Qty_275; 
+		this.Qty_object_276 = Qty_276; 
+		this.Qty_object_277 = Qty_277; 
+		this.Qty_object_278 = Qty_278; 
+		this.Qty_object_279 = Qty_279; 
+		this.Qty_object_280 = Qty_280; 
+		this.Qty_object_281 = Qty_281; 
+		this.Qty_object_282 = Qty_282; 
+		this.Qty_object_283 = Qty_283; 
+		this.Qty_object_284 = Qty_284; 
+		this.Qty_object_285 = Qty_285; 
+		this.Qty_object_286 = Qty_286; 
+		this.Qty_object_287 = Qty_287; 
+		this.Qty_object_288 = Qty_288; 
+		this.Qty_object_289 = Qty_289; 
+		this.Qty_object_290 = Qty_290; 
+		this.Qty_object_291 = Qty_291; 
+		this.Qty_object_292 = Qty_292; 
+		this.Qty_object_293 = Qty_293; 
+		this.Qty_object_294 = Qty_294; 
+		this.Qty_object_295 = Qty_295; 
+		this.Qty_object_296 = Qty_296; 
+		this.Qty_object_297 = Qty_297; 
+		this.Qty_object_298 = Qty_298; 
+		this.Qty_object_299 = Qty_299; 
+		this.Qty_object_300 = Qty_300; 
+		this.Qty_object_301 = Qty_301; 
+		this.Qty_object_302 = Qty_302; 
+		this.Qty_object_303 = Qty_303; 
+		this.Qty_object_304 = Qty_304; 
+		this.Qty_object_305 = Qty_305; 
+		this.Qty_object_306 = Qty_306; 
+		this.Qty_object_307 = Qty_307; 
+		this.Qty_object_308 = Qty_308; 
+		this.Qty_object_309 = Qty_309; 
+		this.Qty_object_310 = Qty_310; 
+		this.Qty_object_311 = Qty_311; 
+		this.Qty_object_312 = Qty_312; 
+		this.Qty_object_313 = Qty_313; 
+		this.Qty_object_314 = Qty_314; 
+		this.Qty_object_315 = Qty_315; 
+		this.Qty_object_316 = Qty_316; 
+		this.Qty_object_317 = Qty_317; 
+		this.Qty_object_318 = Qty_318; 
+		this.Qty_object_319 = Qty_319; 
+		this.Qty_object_320 = Qty_320; 
+		this.Qty_object_321 = Qty_321; 
+		this.Qty_object_322 = Qty_322; 
+		this.Qty_object_323 = Qty_323; 
+		this.Qty_object_324 = Qty_324; 
+		this.Qty_object_325 = Qty_325; 
+		this.Qty_object_326 = Qty_326; 
+		this.Qty_object_327 = Qty_327; 
+		this.Qty_object_328 = Qty_328; 
+		this.Qty_object_329 = Qty_329; 
+		this.Qty_object_330 = Qty_330; 
+		this.Qty_object_331 = Qty_331; 
+		this.Qty_object_332 = Qty_332; 
+		this.Qty_object_333 = Qty_333; 
+		this.Qty_object_334 = Qty_334; 
+		this.Qty_object_335 = Qty_335; 
+		this.Qty_object_336 = Qty_336; 
+		this.Qty_object_337 = Qty_337; 
+		this.Qty_object_338 = Qty_338; 
+		this.Qty_object_339 = Qty_339; 
+		this.Qty_object_340 = Qty_340; 
+		this.Qty_object_341 = Qty_341; 
+		this.Qty_object_342 = Qty_342; 
+		this.Pty_object_1 = Pty_1; 
+		this.Pty_object_2 = Pty_2; 
+		this.Pty_object_3 = Pty_3; 
+        }
+}
+
+class Tgt
+{
+	
+	String Sub = "String"; 
+	String Loc = "String"; 
+	String ID = "String"; 
+	
+ 	Tgt(){
+	}
+
+	Tgt(String Sub, String Loc, String ID){ 
+     
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Sub
+{
+	
+	String Typ = "2"; 
+	String ID = "ZZZ"; 
+	
+ 	Sub(){
+	}
+
+	Sub(String Typ, String ID){ 
+     
+		this.Typ = Typ;	
+		this.ID = ID;	
+	  
+        }
+}

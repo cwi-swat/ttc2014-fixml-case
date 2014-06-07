@@ -1,0 +1,249 @@
+class DlvrTo{
+	
+	string Sub = "String"; 
+	string Loc = "String"; 
+	string ID = "String"; 
+	
+ 	DlvrTo(){
+	}
+
+	DlvrTo(string Sub, string Loc, string ID){ 
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	
+       }
+}
+
+class Sndr{
+	
+	string Sub = "String"; 
+	string Loc = "String"; 
+	string ID = "String"; 
+	
+ 	Sndr(){
+	}
+
+	Sndr(string Sub, string Loc, string ID){ 
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	
+       }
+}
+
+class Amt{
+	
+	string Amt = "0.00"; 
+	string Typ = "FMTM"; 
+	
+ 	Amt(){
+	}
+
+	Amt(string Amt, string Typ){ 
+		this.Amt = Amt;	
+		this.Typ = Typ;	
+	
+       }
+}
+
+class Qty{
+	
+	string Short = "0"; 
+	string Typ = "SOD"; 
+	string Long = "35"; 
+	
+ 	Qty(){
+	}
+
+	Qty(string Short, string Typ, string Long){ 
+		this.Short = Short;	
+		this.Typ = Typ;	
+		this.Long = Long;	
+	
+       }
+}
+
+class Hdr{
+	
+	string PosRsnd = "N"; 
+	string SeqNum = "1002"; 
+	string PosDup = "N"; 
+	string Snt = "2001-12-17T09:30:47-05:00"; 
+	DlvrTo DlvrTo_object = new DlvrTo();
+ 	Sndr Sndr_object = new Sndr();
+ 	OnBhlfOf OnBhlfOf_object = new OnBhlfOf();
+ 	Tgt Tgt_object = new Tgt();
+ 	
+ 	Hdr(){
+	}
+
+	Hdr(string PosRsnd, string SeqNum, string PosDup, string Snt, DlvrTo DlvrTo_, Sndr Sndr_, OnBhlfOf OnBhlfOf_, Tgt Tgt_){ 
+		this.PosRsnd = PosRsnd;	
+		this.SeqNum = SeqNum;	
+		this.PosDup = PosDup;	
+		this.Snt = Snt;	
+	
+		this.DlvrTo_object = DlvrTo_; 
+		this.Sndr_object = Sndr_; 
+		this.OnBhlfOf_object = OnBhlfOf_; 
+		this.Tgt_object = Tgt_; 
+       }
+}
+
+class OnBhlfOf{
+	
+	string Sub = "String"; 
+	string Loc = "String"; 
+	string ID = "String"; 
+	
+ 	OnBhlfOf(){
+	}
+
+	OnBhlfOf(string Sub, string Loc, string ID){ 
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	
+       }
+}
+
+class Pty{
+	
+	string R = "21"; 
+	string ID = "OCC"; 
+	Sub Sub_object = new Sub();
+ 	
+ 	Pty(){
+	}
+
+	Pty(string R, string ID, Sub Sub_){ 
+		this.R = R;	
+		this.ID = ID;	
+	
+		this.Sub_object = Sub_; 
+       }
+}
+
+class FIXML{
+	
+	PosRpt PosRpt_object = new PosRpt();
+ 	
+ 	FIXML(){
+	}
+
+	FIXML(PosRpt PosRpt_){ 
+	
+		this.PosRpt_object = PosRpt_; 
+       }
+}
+
+class Instrmt{
+	
+	string CFI = "OCASPS"; 
+	string IDSrc = "J"; 
+	string Mult = "100"; 
+	string Sym = "AOL"; 
+	string ID = "KW"; 
+	string StrkCcy = "USD"; 
+	string Mat = "2003-11-22T00:00:00"; 
+	string MMY = "20031122"; 
+	string Strk = "47.50"; 
+	
+ 	Instrmt(){
+	}
+
+	Instrmt(string CFI, string IDSrc, string Mult, string Sym, string ID, string StrkCcy, string Mat, string MMY, string Strk){ 
+		this.CFI = CFI;	
+		this.IDSrc = IDSrc;	
+		this.Mult = Mult;	
+		this.Sym = Sym;	
+		this.ID = ID;	
+		this.StrkCcy = StrkCcy;	
+		this.Mat = Mat;	
+		this.MMY = MMY;	
+		this.Strk = Strk;	
+	
+       }
+}
+
+class PosRpt{
+	
+	string SetPxTyp = "1"; 
+	string BizDt = "2003-09-10T00:00:00"; 
+	string Acct = "1"; 
+	string AcctTyp = "1"; 
+	string ReqTyp = "0"; 
+	string SetPx = "0.00"; 
+	string RptID = "541386431"; 
+	string PriSetPx = "0.00"; 
+	string Rslt = "0"; 
+	string Ccy = "USD"; 
+	Amt Amt_object = new Amt();
+ 	Hdr Hdr_object = new Hdr();
+ 	Instrmt Instrmt_object = new Instrmt();
+ 	Qty Qty_object_1 = new Qty();
+ 	Qty Qty_object_2 = new Qty();
+ 	Qty Qty_object_3 = new Qty();
+ 	Pty Pty_object_1 = new Pty();
+ 	Pty Pty_object_2 = new Pty();
+ 	Pty Pty_object_3 = new Pty();
+ 	
+ 	PosRpt(){
+	}
+
+	PosRpt(string SetPxTyp, string BizDt, string Acct, string AcctTyp, string ReqTyp, string SetPx, string RptID, string PriSetPx, string Rslt, string Ccy, Amt Amt_, Hdr Hdr_, Instrmt Instrmt_, Qty Qty_1, Qty Qty_2, Qty Qty_3, Pty Pty_1, Pty Pty_2, Pty Pty_3){ 
+		this.SetPxTyp = SetPxTyp;	
+		this.BizDt = BizDt;	
+		this.Acct = Acct;	
+		this.AcctTyp = AcctTyp;	
+		this.ReqTyp = ReqTyp;	
+		this.SetPx = SetPx;	
+		this.RptID = RptID;	
+		this.PriSetPx = PriSetPx;	
+		this.Rslt = Rslt;	
+		this.Ccy = Ccy;	
+	
+		this.Amt_object = Amt_; 
+		this.Hdr_object = Hdr_; 
+		this.Instrmt_object = Instrmt_; 
+		this.Qty_object_1 = Qty_1; 
+		this.Qty_object_2 = Qty_2; 
+		this.Qty_object_3 = Qty_3; 
+		this.Pty_object_1 = Pty_1; 
+		this.Pty_object_2 = Pty_2; 
+		this.Pty_object_3 = Pty_3; 
+       }
+}
+
+class Tgt{
+	
+	string Sub = "String"; 
+	string Loc = "String"; 
+	string ID = "String"; 
+	
+ 	Tgt(){
+	}
+
+	Tgt(string Sub, string Loc, string ID){ 
+		this.Sub = Sub;	
+		this.Loc = Loc;	
+		this.ID = ID;	
+	
+       }
+}
+
+class Sub{
+	
+	string Typ = "2"; 
+	string ID = "ZZZ"; 
+	
+ 	Sub(){
+	}
+
+	Sub(string Typ, string ID){ 
+		this.Typ = Typ;	
+		this.ID = ID;	
+	
+       }
+}

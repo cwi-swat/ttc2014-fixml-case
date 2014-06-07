@@ -1,0 +1,157 @@
+class Tgt
+{
+ private:	
+
+	string ID; 
+	
+ public:
+   Tgt(){ 
+		ID = "ABROKER";	
+       }
+	Tgt(string ID_){
+	 
+		ID = ID_;	
+	
+       }
+}
+
+class Instrmt
+{
+ private:	
+
+	string Sym; 
+	string IDSrc; 
+	string ID; 
+	
+ public:
+   Instrmt(){ 
+		Sym = "IBM";	
+		IDSrc = "1";	
+		ID = "459200101";	
+       }
+	Instrmt(string Sym_, string IDSrc_, string ID_){
+	 
+		Sym = Sym_;	
+		IDSrc = IDSrc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class OrdQty
+{
+ private:	
+
+	string Qty; 
+	
+ public:
+   OrdQty(){ 
+		Qty = "1000";	
+       }
+	OrdQty(string Qty_){
+	 
+		Qty = Qty_;	
+	
+       }
+}
+
+class Sndr
+{
+ private:	
+
+	string ID; 
+	
+ public:
+   Sndr(){ 
+		ID = "AFUNDMGR";	
+       }
+	Sndr(string ID_){
+	 
+		ID = ID_;	
+	
+       }
+}
+
+class Hdr
+{
+ private:	
+
+	string PosRsnd; 
+	string Snt; 
+	string SeqNum; 
+	string PosDup; 
+	Sndr* Sndr_object;
+ 	Tgt* Tgt_object;
+ 	
+ public:
+   Hdr(){ 
+		PosRsnd = "N";	
+		Snt = "2001-09-11T09:30:47-05:00";	
+		SeqNum = "521";	
+		PosDup = "N";	
+       }
+	Hdr(string PosRsnd_, string Snt_, string SeqNum_, string PosDup_, Sndr* Sndr_, Tgt* Tgt_){
+	 
+		PosRsnd = PosRsnd_;	
+		Snt = Snt_;	
+		SeqNum = SeqNum_;	
+		PosDup = PosDup_;	
+	
+		Sndr_object = Sndr_; 
+		Tgt_object = Tgt_; 
+       }
+}
+
+class Order
+{
+ private:	
+
+	string OrdTyp; 
+	string Px; 
+	string ClOrdID; 
+	string TransactTm; 
+	string Acct; 
+	string Side; 
+	Hdr* Hdr_object;
+ 	OrdQty* OrdQty_object;
+ 	Instrmt* Instrmt_object;
+ 	
+ public:
+   Order(){ 
+		OrdTyp = "2";	
+		Px = "93.25";	
+		ClOrdID = "123456";	
+		TransactTm = "2001-09-11T09:30:47-05:00";	
+		Acct = "26522154";	
+		Side = "2";	
+       }
+	Order(string OrdTyp_, string Px_, string ClOrdID_, string TransactTm_, string Acct_, string Side_, Hdr* Hdr_, OrdQty* OrdQty_, Instrmt* Instrmt_){
+	 
+		OrdTyp = OrdTyp_;	
+		Px = Px_;	
+		ClOrdID = ClOrdID_;	
+		TransactTm = TransactTm_;	
+		Acct = Acct_;	
+		Side = Side_;	
+	
+		Hdr_object = Hdr_; 
+		OrdQty_object = OrdQty_; 
+		Instrmt_object = Instrmt_; 
+       }
+}
+
+class FIXML
+{
+ private:	
+
+	Order* Order_object;
+ 	
+ public:
+   FIXML(){ 
+       }
+	FIXML(Order* Order_){
+	 
+	
+		Order_object = Order_; 
+       }
+}

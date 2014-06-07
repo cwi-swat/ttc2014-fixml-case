@@ -1,0 +1,326 @@
+class SecurityID
+{
+	
+	
+ 	SecurityID(){
+	}
+
+	SecurityID(){ 
+     
+	  
+        }
+}
+
+class OrderQuantity
+{
+	
+	OrderQty OrderQty_object =
+		 new OrderQty();
+ 	
+ 	OrderQuantity(){
+	}
+
+	OrderQuantity(OrderQty OrderQty_){ 
+     
+	  
+		this.OrderQty_object = OrderQty_; 
+        }
+}
+
+class Symbol
+{
+	
+	
+ 	Symbol(){
+	}
+
+	Symbol(){ 
+     
+	  
+        }
+}
+
+class ApplicationMessage
+{
+	
+	Order Order_object =
+		 new Order();
+ 	
+ 	ApplicationMessage(){
+	}
+
+	ApplicationMessage(Order Order_){ 
+     
+	  
+		this.Order_object = Order_; 
+        }
+}
+
+class Side
+{
+	
+	String Value = "1"; 
+	
+ 	Side(){
+	}
+
+	Side(String Value){ 
+     
+		this.Value = Value;	
+	  
+        }
+}
+
+class TransactTime
+{
+	
+	
+ 	TransactTime(){
+	}
+
+	TransactTime(){ 
+     
+	  
+        }
+}
+
+class IDSource
+{
+	
+	
+ 	IDSource(){
+	}
+
+	IDSource(){ 
+     
+	  
+        }
+}
+
+class HandInst
+{
+	
+	String Value = "2"; 
+	
+ 	HandInst(){
+	}
+
+	HandInst(String Value){ 
+     
+		this.Value = Value;	
+	  
+        }
+}
+
+class FIXML
+{
+	
+	FIXMLMessage FIXMLMessage_object =
+		 new FIXMLMessage();
+ 	
+ 	FIXML(){
+	}
+
+	FIXML(FIXMLMessage FIXMLMessage_){ 
+     
+	  
+		this.FIXMLMessage_object = FIXMLMessage_; 
+        }
+}
+
+class FIXMLMessage
+{
+	
+	ApplicationMessage ApplicationMessage_object =
+		 new ApplicationMessage();
+ 	
+ 	FIXMLMessage(){
+	}
+
+	FIXMLMessage(ApplicationMessage ApplicationMessage_){ 
+     
+	  
+		this.ApplicationMessage_object = ApplicationMessage_; 
+        }
+}
+
+class LimitOrder
+{
+	
+	String Value = "2"; 
+	Price Price_object =
+		 new Price();
+ 	
+ 	LimitOrder(){
+	}
+
+	LimitOrder(String Value, Price Price_){ 
+     
+		this.Value = Value;	
+	  
+		this.Price_object = Price_; 
+        }
+}
+
+class ClOrdID
+{
+	
+	
+ 	ClOrdID(){
+	}
+
+	ClOrdID(){ 
+     
+	  
+        }
+}
+
+class Currency
+{
+	
+	String Value = "USD"; 
+	
+ 	Currency(){
+	}
+
+	Currency(String Value){ 
+     
+		this.Value = Value;	
+	  
+        }
+}
+
+class Order
+{
+	
+	Rule80A Rule80A_object =
+		 new Rule80A();
+ 	OrderQuantity OrderQuantity_object =
+		 new OrderQuantity();
+ 	OrderType OrderType_object =
+		 new OrderType();
+ 	TransactTime TransactTime_object =
+		 new TransactTime();
+ 	Side Side_object =
+		 new Side();
+ 	Instrument Instrument_object =
+		 new Instrument();
+ 	HandInst HandInst_object =
+		 new HandInst();
+ 	MinQty MinQty_object =
+		 new MinQty();
+ 	ClOrdID ClOrdID_object =
+		 new ClOrdID();
+ 	Currency Currency_object =
+		 new Currency();
+ 	
+ 	Order(){
+	}
+
+	Order(Rule80A Rule80A_, OrderQuantity OrderQuantity_, OrderType OrderType_, TransactTime TransactTime_, Side Side_, Instrument Instrument_, HandInst HandInst_, MinQty MinQty_, ClOrdID ClOrdID_, Currency Currency_){ 
+     
+	  
+		this.Rule80A_object = Rule80A_; 
+		this.OrderQuantity_object = OrderQuantity_; 
+		this.OrderType_object = OrderType_; 
+		this.TransactTime_object = TransactTime_; 
+		this.Side_object = Side_; 
+		this.Instrument_object = Instrument_; 
+		this.HandInst_object = HandInst_; 
+		this.MinQty_object = MinQty_; 
+		this.ClOrdID_object = ClOrdID_; 
+		this.Currency_object = Currency_; 
+        }
+}
+
+class Rule80A
+{
+	
+	String Value = "A"; 
+	
+ 	Rule80A(){
+	}
+
+	Rule80A(String Value){ 
+     
+		this.Value = Value;	
+	  
+        }
+}
+
+class Price
+{
+	
+	
+ 	Price(){
+	}
+
+	Price(){ 
+     
+	  
+        }
+}
+
+class OrderQty
+{
+	
+	
+ 	OrderQty(){
+	}
+
+	OrderQty(){ 
+     
+	  
+        }
+}
+
+class OrderType
+{
+	
+	LimitOrder LimitOrder_object =
+		 new LimitOrder();
+ 	
+ 	OrderType(){
+	}
+
+	OrderType(LimitOrder LimitOrder_){ 
+     
+	  
+		this.LimitOrder_object = LimitOrder_; 
+        }
+}
+
+class Instrument
+{
+	
+	SecurityID SecurityID_object =
+		 new SecurityID();
+ 	Symbol Symbol_object =
+		 new Symbol();
+ 	IDSource IDSource_object =
+		 new IDSource();
+ 	
+ 	Instrument(){
+	}
+
+	Instrument(SecurityID SecurityID_, Symbol Symbol_, IDSource IDSource_){ 
+     
+	  
+		this.SecurityID_object = SecurityID_; 
+		this.Symbol_object = Symbol_; 
+		this.IDSource_object = IDSource_; 
+        }
+}
+
+class MinQty
+{
+	
+	
+ 	MinQty(){
+	}
+
+	MinQty(){ 
+     
+	  
+        }
+}

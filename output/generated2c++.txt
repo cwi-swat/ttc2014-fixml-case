@@ -1,0 +1,329 @@
+class Sub
+{
+ private:	
+
+	string Typ; 
+	string ID; 
+	
+ public:
+   Sub(){ 
+		Typ = "2";	
+		ID = "ZZZ";	
+       }
+	Sub(string Typ_, string ID_){
+	 
+		Typ = Typ_;	
+		ID = ID_;	
+	
+       }
+}
+
+class Tgt
+{
+ private:	
+
+	string Sub; 
+	string Loc; 
+	string ID; 
+	
+ public:
+   Tgt(){ 
+		Sub = "String";	
+		Loc = "String";	
+		ID = "String";	
+       }
+	Tgt(string Sub_, string Loc_, string ID_){
+	 
+		Sub = Sub_;	
+		Loc = Loc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class Instrmt
+{
+ private:	
+
+	string CFI; 
+	string IDSrc; 
+	string Mult; 
+	string Sym; 
+	string ID; 
+	string StrkCcy; 
+	string Mat; 
+	string MMY; 
+	string Strk; 
+	
+ public:
+   Instrmt(){ 
+		CFI = "OCASPS";	
+		IDSrc = "J";	
+		Mult = "100";	
+		Sym = "AOL";	
+		ID = "KW";	
+		StrkCcy = "USD";	
+		Mat = "2003-11-22T00:00:00";	
+		MMY = "20031122";	
+		Strk = "47.50";	
+       }
+	Instrmt(string CFI_, string IDSrc_, string Mult_, string Sym_, string ID_, string StrkCcy_, string Mat_, string MMY_, string Strk_){
+	 
+		CFI = CFI_;	
+		IDSrc = IDSrc_;	
+		Mult = Mult_;	
+		Sym = Sym_;	
+		ID = ID_;	
+		StrkCcy = StrkCcy_;	
+		Mat = Mat_;	
+		MMY = MMY_;	
+		Strk = Strk_;	
+	
+       }
+}
+
+class Qty
+{
+ private:	
+
+	string Short; 
+	string Typ; 
+	string Long; 
+	
+ public:
+   Qty(){ 
+		Short = "0";	
+		Typ = "SOD";	
+		Long = "35";	
+       }
+	Qty(string Short_, string Typ_, string Long_){
+	 
+		Short = Short_;	
+		Typ = Typ_;	
+		Long = Long_;	
+	
+       }
+}
+
+class OnBhlfOf
+{
+ private:	
+
+	string Sub; 
+	string Loc; 
+	string ID; 
+	
+ public:
+   OnBhlfOf(){ 
+		Sub = "String";	
+		Loc = "String";	
+		ID = "String";	
+       }
+	OnBhlfOf(string Sub_, string Loc_, string ID_){
+	 
+		Sub = Sub_;	
+		Loc = Loc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class Amt
+{
+ private:	
+
+	string Amt; 
+	string Typ; 
+	
+ public:
+   Amt(){ 
+		Amt = "0.00";	
+		Typ = "FMTM";	
+       }
+	Amt(string Amt_, string Typ_){
+	 
+		Amt = Amt_;	
+		Typ = Typ_;	
+	
+       }
+}
+
+class Sndr
+{
+ private:	
+
+	string Sub; 
+	string Loc; 
+	string ID; 
+	
+ public:
+   Sndr(){ 
+		Sub = "String";	
+		Loc = "String";	
+		ID = "String";	
+       }
+	Sndr(string Sub_, string Loc_, string ID_){
+	 
+		Sub = Sub_;	
+		Loc = Loc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class DlvrTo
+{
+ private:	
+
+	string Sub; 
+	string Loc; 
+	string ID; 
+	
+ public:
+   DlvrTo(){ 
+		Sub = "String";	
+		Loc = "String";	
+		ID = "String";	
+       }
+	DlvrTo(string Sub_, string Loc_, string ID_){
+	 
+		Sub = Sub_;	
+		Loc = Loc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class Pty
+{
+ private:	
+
+	string R; 
+	string ID; 
+	Sub* Sub_object;
+ 	
+ public:
+   Pty(){ 
+		R = "21";	
+		ID = "OCC";	
+       }
+	Pty(string R_, string ID_, Sub* Sub_){
+	 
+		R = R_;	
+		ID = ID_;	
+	
+		Sub_object = Sub_; 
+       }
+}
+
+class Hdr
+{
+ private:	
+
+	string PosRsnd; 
+	string SeqNum; 
+	string PosDup; 
+	string Snt; 
+	DlvrTo* DlvrTo_object;
+ 	Sndr* Sndr_object;
+ 	OnBhlfOf* OnBhlfOf_object;
+ 	Tgt* Tgt_object;
+ 	
+ public:
+   Hdr(){ 
+		PosRsnd = "N";	
+		SeqNum = "1002";	
+		PosDup = "N";	
+		Snt = "2001-12-17T09:30:47-05:00";	
+       }
+	Hdr(string PosRsnd_, string SeqNum_, string PosDup_, string Snt_, DlvrTo* DlvrTo_, Sndr* Sndr_, OnBhlfOf* OnBhlfOf_, Tgt* Tgt_){
+	 
+		PosRsnd = PosRsnd_;	
+		SeqNum = SeqNum_;	
+		PosDup = PosDup_;	
+		Snt = Snt_;	
+	
+		DlvrTo_object = DlvrTo_; 
+		Sndr_object = Sndr_; 
+		OnBhlfOf_object = OnBhlfOf_; 
+		Tgt_object = Tgt_; 
+       }
+}
+
+class PosRpt
+{
+ private:	
+
+	string SetPxTyp; 
+	string BizDt; 
+	string Acct; 
+	string AcctTyp; 
+	string ReqTyp; 
+	string SetPx; 
+	string RptID; 
+	string PriSetPx; 
+	string Rslt; 
+	string Ccy; 
+	Amt* Amt_object;
+ 	Hdr* Hdr_object;
+ 	Instrmt* Instrmt_object;
+ 	Qty* Qty_object_1;
+ 	Qty* Qty_object_2;
+ 	Qty* Qty_object_3;
+ 	Pty* Pty_object_1;
+ 	Pty* Pty_object_2;
+ 	Pty* Pty_object_3;
+ 	
+ public:
+   PosRpt(){ 
+		SetPxTyp = "1";	
+		BizDt = "2003-09-10T00:00:00";	
+		Acct = "1";	
+		AcctTyp = "1";	
+		ReqTyp = "0";	
+		SetPx = "0.00";	
+		RptID = "541386431";	
+		PriSetPx = "0.00";	
+		Rslt = "0";	
+		Ccy = "USD";	
+       }
+	PosRpt(string SetPxTyp_, string BizDt_, string Acct_, string AcctTyp_, string ReqTyp_, string SetPx_, string RptID_, string PriSetPx_, string Rslt_, string Ccy_, Amt* Amt_, Hdr* Hdr_, Instrmt* Instrmt_, Qty* Qty_1, Qty* Qty_2, Qty* Qty_3, Pty* Pty_1, Pty* Pty_2, Pty* Pty_3){
+	 
+		SetPxTyp = SetPxTyp_;	
+		BizDt = BizDt_;	
+		Acct = Acct_;	
+		AcctTyp = AcctTyp_;	
+		ReqTyp = ReqTyp_;	
+		SetPx = SetPx_;	
+		RptID = RptID_;	
+		PriSetPx = PriSetPx_;	
+		Rslt = Rslt_;	
+		Ccy = Ccy_;	
+	
+		Amt_object = Amt_; 
+		Hdr_object = Hdr_; 
+		Instrmt_object = Instrmt_; 
+		Qty_object_1 = Qty_1; 
+		Qty_object_2 = Qty_2; 
+		Qty_object_3 = Qty_3; 
+		Pty_object_1 = Pty_1; 
+		Pty_object_2 = Pty_2; 
+		Pty_object_3 = Pty_3; 
+       }
+}
+
+class FIXML
+{
+ private:	
+
+	PosRpt* PosRpt_object;
+ 	
+ public:
+   FIXML(){ 
+       }
+	FIXML(PosRpt* PosRpt_){
+	 
+	
+		PosRpt_object = PosRpt_; 
+       }
+}

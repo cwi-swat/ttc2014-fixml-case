@@ -1,0 +1,1007 @@
+class Sub
+{
+ private:	
+
+	string Typ; 
+	string ID; 
+	
+ public:
+   Sub(){ 
+		Typ = "2";	
+		ID = "ZZZ";	
+       }
+	Sub(string Typ_, string ID_){
+	 
+		Typ = Typ_;	
+		ID = ID_;	
+	
+       }
+}
+
+class Tgt
+{
+ private:	
+
+	string Sub; 
+	string Loc; 
+	string ID; 
+	
+ public:
+   Tgt(){ 
+		Sub = "String";	
+		Loc = "String";	
+		ID = "String";	
+       }
+	Tgt(string Sub_, string Loc_, string ID_){
+	 
+		Sub = Sub_;	
+		Loc = Loc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class Instrmt
+{
+ private:	
+
+	string CFI; 
+	string IDSrc; 
+	string Mult; 
+	string Sym; 
+	string ID; 
+	string StrkCcy; 
+	string Mat; 
+	string MMY; 
+	string Strk; 
+	
+ public:
+   Instrmt(){ 
+		CFI = "OCASPS";	
+		IDSrc = "J";	
+		Mult = "100";	
+		Sym = "AOL";	
+		ID = "KW";	
+		StrkCcy = "USD";	
+		Mat = "2003-11-22T00:00:00";	
+		MMY = "20031122";	
+		Strk = "47.50";	
+       }
+	Instrmt(string CFI_, string IDSrc_, string Mult_, string Sym_, string ID_, string StrkCcy_, string Mat_, string MMY_, string Strk_){
+	 
+		CFI = CFI_;	
+		IDSrc = IDSrc_;	
+		Mult = Mult_;	
+		Sym = Sym_;	
+		ID = ID_;	
+		StrkCcy = StrkCcy_;	
+		Mat = Mat_;	
+		MMY = MMY_;	
+		Strk = Strk_;	
+	
+       }
+}
+
+class Qty
+{
+ private:	
+
+	string Short; 
+	string Typ; 
+	string Long; 
+	
+ public:
+   Qty(){ 
+		Short = "0";	
+		Typ = "SOD";	
+		Long = "35";	
+       }
+	Qty(string Short_, string Typ_, string Long_){
+	 
+		Short = Short_;	
+		Typ = Typ_;	
+		Long = Long_;	
+	
+       }
+}
+
+class OnBhlfOf
+{
+ private:	
+
+	string Sub; 
+	string Loc; 
+	string ID; 
+	
+ public:
+   OnBhlfOf(){ 
+		Sub = "String";	
+		Loc = "String";	
+		ID = "String";	
+       }
+	OnBhlfOf(string Sub_, string Loc_, string ID_){
+	 
+		Sub = Sub_;	
+		Loc = Loc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class Amt
+{
+ private:	
+
+	string Amt; 
+	string Typ; 
+	
+ public:
+   Amt(){ 
+		Amt = "0.00";	
+		Typ = "FMTM";	
+       }
+	Amt(string Amt_, string Typ_){
+	 
+		Amt = Amt_;	
+		Typ = Typ_;	
+	
+       }
+}
+
+class Sndr
+{
+ private:	
+
+	string Sub; 
+	string Loc; 
+	string ID; 
+	
+ public:
+   Sndr(){ 
+		Sub = "String";	
+		Loc = "String";	
+		ID = "String";	
+       }
+	Sndr(string Sub_, string Loc_, string ID_){
+	 
+		Sub = Sub_;	
+		Loc = Loc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class DlvrTo
+{
+ private:	
+
+	string Sub; 
+	string Loc; 
+	string ID; 
+	
+ public:
+   DlvrTo(){ 
+		Sub = "String";	
+		Loc = "String";	
+		ID = "String";	
+       }
+	DlvrTo(string Sub_, string Loc_, string ID_){
+	 
+		Sub = Sub_;	
+		Loc = Loc_;	
+		ID = ID_;	
+	
+       }
+}
+
+class Pty
+{
+ private:	
+
+	string R; 
+	string ID; 
+	Sub* Sub_object;
+ 	
+ public:
+   Pty(){ 
+		R = "21";	
+		ID = "OCC";	
+       }
+	Pty(string R_, string ID_, Sub* Sub_){
+	 
+		R = R_;	
+		ID = ID_;	
+	
+		Sub_object = Sub_; 
+       }
+}
+
+class Hdr
+{
+ private:	
+
+	string PosRsnd; 
+	string SeqNum; 
+	string PosDup; 
+	string Snt; 
+	DlvrTo* DlvrTo_object;
+ 	Sndr* Sndr_object;
+ 	OnBhlfOf* OnBhlfOf_object;
+ 	Tgt* Tgt_object;
+ 	
+ public:
+   Hdr(){ 
+		PosRsnd = "N";	
+		SeqNum = "1002";	
+		PosDup = "N";	
+		Snt = "2001-12-17T09:30:47-05:00";	
+       }
+	Hdr(string PosRsnd_, string SeqNum_, string PosDup_, string Snt_, DlvrTo* DlvrTo_, Sndr* Sndr_, OnBhlfOf* OnBhlfOf_, Tgt* Tgt_){
+	 
+		PosRsnd = PosRsnd_;	
+		SeqNum = SeqNum_;	
+		PosDup = PosDup_;	
+		Snt = Snt_;	
+	
+		DlvrTo_object = DlvrTo_; 
+		Sndr_object = Sndr_; 
+		OnBhlfOf_object = OnBhlfOf_; 
+		Tgt_object = Tgt_; 
+       }
+}
+
+class PosRpt
+{
+ private:	
+
+	string SetPxTyp; 
+	string BizDt; 
+	string Acct; 
+	string AcctTyp; 
+	string ReqTyp; 
+	string SetPx; 
+	string RptID; 
+	string PriSetPx; 
+	string Rslt; 
+	string Ccy; 
+	Amt* Amt_object;
+ 	Hdr* Hdr_object;
+ 	Instrmt* Instrmt_object;
+ 	Qty* Qty_object_1;
+ 	Qty* Qty_object_2;
+ 	Qty* Qty_object_3;
+ 	Qty* Qty_object_4;
+ 	Qty* Qty_object_5;
+ 	Qty* Qty_object_6;
+ 	Qty* Qty_object_7;
+ 	Qty* Qty_object_8;
+ 	Qty* Qty_object_9;
+ 	Qty* Qty_object_10;
+ 	Qty* Qty_object_11;
+ 	Qty* Qty_object_12;
+ 	Qty* Qty_object_13;
+ 	Qty* Qty_object_14;
+ 	Qty* Qty_object_15;
+ 	Qty* Qty_object_16;
+ 	Qty* Qty_object_17;
+ 	Qty* Qty_object_18;
+ 	Qty* Qty_object_19;
+ 	Qty* Qty_object_20;
+ 	Qty* Qty_object_21;
+ 	Qty* Qty_object_22;
+ 	Qty* Qty_object_23;
+ 	Qty* Qty_object_24;
+ 	Qty* Qty_object_25;
+ 	Qty* Qty_object_26;
+ 	Qty* Qty_object_27;
+ 	Qty* Qty_object_28;
+ 	Qty* Qty_object_29;
+ 	Qty* Qty_object_30;
+ 	Qty* Qty_object_31;
+ 	Qty* Qty_object_32;
+ 	Qty* Qty_object_33;
+ 	Qty* Qty_object_34;
+ 	Qty* Qty_object_35;
+ 	Qty* Qty_object_36;
+ 	Qty* Qty_object_37;
+ 	Qty* Qty_object_38;
+ 	Qty* Qty_object_39;
+ 	Qty* Qty_object_40;
+ 	Qty* Qty_object_41;
+ 	Qty* Qty_object_42;
+ 	Qty* Qty_object_43;
+ 	Qty* Qty_object_44;
+ 	Qty* Qty_object_45;
+ 	Qty* Qty_object_46;
+ 	Qty* Qty_object_47;
+ 	Qty* Qty_object_48;
+ 	Qty* Qty_object_49;
+ 	Qty* Qty_object_50;
+ 	Qty* Qty_object_51;
+ 	Qty* Qty_object_52;
+ 	Qty* Qty_object_53;
+ 	Qty* Qty_object_54;
+ 	Qty* Qty_object_55;
+ 	Qty* Qty_object_56;
+ 	Qty* Qty_object_57;
+ 	Qty* Qty_object_58;
+ 	Qty* Qty_object_59;
+ 	Qty* Qty_object_60;
+ 	Qty* Qty_object_61;
+ 	Qty* Qty_object_62;
+ 	Qty* Qty_object_63;
+ 	Qty* Qty_object_64;
+ 	Qty* Qty_object_65;
+ 	Qty* Qty_object_66;
+ 	Qty* Qty_object_67;
+ 	Qty* Qty_object_68;
+ 	Qty* Qty_object_69;
+ 	Qty* Qty_object_70;
+ 	Qty* Qty_object_71;
+ 	Qty* Qty_object_72;
+ 	Qty* Qty_object_73;
+ 	Qty* Qty_object_74;
+ 	Qty* Qty_object_75;
+ 	Qty* Qty_object_76;
+ 	Qty* Qty_object_77;
+ 	Qty* Qty_object_78;
+ 	Qty* Qty_object_79;
+ 	Qty* Qty_object_80;
+ 	Qty* Qty_object_81;
+ 	Qty* Qty_object_82;
+ 	Qty* Qty_object_83;
+ 	Qty* Qty_object_84;
+ 	Qty* Qty_object_85;
+ 	Qty* Qty_object_86;
+ 	Qty* Qty_object_87;
+ 	Qty* Qty_object_88;
+ 	Qty* Qty_object_89;
+ 	Qty* Qty_object_90;
+ 	Qty* Qty_object_91;
+ 	Qty* Qty_object_92;
+ 	Qty* Qty_object_93;
+ 	Qty* Qty_object_94;
+ 	Qty* Qty_object_95;
+ 	Qty* Qty_object_96;
+ 	Qty* Qty_object_97;
+ 	Qty* Qty_object_98;
+ 	Qty* Qty_object_99;
+ 	Qty* Qty_object_100;
+ 	Qty* Qty_object_101;
+ 	Qty* Qty_object_102;
+ 	Qty* Qty_object_103;
+ 	Qty* Qty_object_104;
+ 	Qty* Qty_object_105;
+ 	Qty* Qty_object_106;
+ 	Qty* Qty_object_107;
+ 	Qty* Qty_object_108;
+ 	Qty* Qty_object_109;
+ 	Qty* Qty_object_110;
+ 	Qty* Qty_object_111;
+ 	Qty* Qty_object_112;
+ 	Qty* Qty_object_113;
+ 	Qty* Qty_object_114;
+ 	Qty* Qty_object_115;
+ 	Qty* Qty_object_116;
+ 	Qty* Qty_object_117;
+ 	Qty* Qty_object_118;
+ 	Qty* Qty_object_119;
+ 	Qty* Qty_object_120;
+ 	Qty* Qty_object_121;
+ 	Qty* Qty_object_122;
+ 	Qty* Qty_object_123;
+ 	Qty* Qty_object_124;
+ 	Qty* Qty_object_125;
+ 	Qty* Qty_object_126;
+ 	Qty* Qty_object_127;
+ 	Qty* Qty_object_128;
+ 	Qty* Qty_object_129;
+ 	Qty* Qty_object_130;
+ 	Qty* Qty_object_131;
+ 	Qty* Qty_object_132;
+ 	Qty* Qty_object_133;
+ 	Qty* Qty_object_134;
+ 	Qty* Qty_object_135;
+ 	Qty* Qty_object_136;
+ 	Qty* Qty_object_137;
+ 	Qty* Qty_object_138;
+ 	Qty* Qty_object_139;
+ 	Qty* Qty_object_140;
+ 	Qty* Qty_object_141;
+ 	Qty* Qty_object_142;
+ 	Qty* Qty_object_143;
+ 	Qty* Qty_object_144;
+ 	Qty* Qty_object_145;
+ 	Qty* Qty_object_146;
+ 	Qty* Qty_object_147;
+ 	Qty* Qty_object_148;
+ 	Qty* Qty_object_149;
+ 	Qty* Qty_object_150;
+ 	Qty* Qty_object_151;
+ 	Qty* Qty_object_152;
+ 	Qty* Qty_object_153;
+ 	Qty* Qty_object_154;
+ 	Qty* Qty_object_155;
+ 	Qty* Qty_object_156;
+ 	Qty* Qty_object_157;
+ 	Qty* Qty_object_158;
+ 	Qty* Qty_object_159;
+ 	Qty* Qty_object_160;
+ 	Qty* Qty_object_161;
+ 	Qty* Qty_object_162;
+ 	Qty* Qty_object_163;
+ 	Qty* Qty_object_164;
+ 	Qty* Qty_object_165;
+ 	Qty* Qty_object_166;
+ 	Qty* Qty_object_167;
+ 	Qty* Qty_object_168;
+ 	Qty* Qty_object_169;
+ 	Qty* Qty_object_170;
+ 	Qty* Qty_object_171;
+ 	Qty* Qty_object_172;
+ 	Qty* Qty_object_173;
+ 	Qty* Qty_object_174;
+ 	Qty* Qty_object_175;
+ 	Qty* Qty_object_176;
+ 	Qty* Qty_object_177;
+ 	Qty* Qty_object_178;
+ 	Qty* Qty_object_179;
+ 	Qty* Qty_object_180;
+ 	Qty* Qty_object_181;
+ 	Qty* Qty_object_182;
+ 	Qty* Qty_object_183;
+ 	Qty* Qty_object_184;
+ 	Qty* Qty_object_185;
+ 	Qty* Qty_object_186;
+ 	Qty* Qty_object_187;
+ 	Qty* Qty_object_188;
+ 	Qty* Qty_object_189;
+ 	Qty* Qty_object_190;
+ 	Qty* Qty_object_191;
+ 	Qty* Qty_object_192;
+ 	Qty* Qty_object_193;
+ 	Qty* Qty_object_194;
+ 	Qty* Qty_object_195;
+ 	Qty* Qty_object_196;
+ 	Qty* Qty_object_197;
+ 	Qty* Qty_object_198;
+ 	Qty* Qty_object_199;
+ 	Qty* Qty_object_200;
+ 	Qty* Qty_object_201;
+ 	Qty* Qty_object_202;
+ 	Qty* Qty_object_203;
+ 	Qty* Qty_object_204;
+ 	Qty* Qty_object_205;
+ 	Qty* Qty_object_206;
+ 	Qty* Qty_object_207;
+ 	Qty* Qty_object_208;
+ 	Qty* Qty_object_209;
+ 	Qty* Qty_object_210;
+ 	Qty* Qty_object_211;
+ 	Qty* Qty_object_212;
+ 	Qty* Qty_object_213;
+ 	Qty* Qty_object_214;
+ 	Qty* Qty_object_215;
+ 	Qty* Qty_object_216;
+ 	Qty* Qty_object_217;
+ 	Qty* Qty_object_218;
+ 	Qty* Qty_object_219;
+ 	Qty* Qty_object_220;
+ 	Qty* Qty_object_221;
+ 	Qty* Qty_object_222;
+ 	Qty* Qty_object_223;
+ 	Qty* Qty_object_224;
+ 	Qty* Qty_object_225;
+ 	Qty* Qty_object_226;
+ 	Qty* Qty_object_227;
+ 	Qty* Qty_object_228;
+ 	Qty* Qty_object_229;
+ 	Qty* Qty_object_230;
+ 	Qty* Qty_object_231;
+ 	Qty* Qty_object_232;
+ 	Qty* Qty_object_233;
+ 	Qty* Qty_object_234;
+ 	Qty* Qty_object_235;
+ 	Qty* Qty_object_236;
+ 	Qty* Qty_object_237;
+ 	Qty* Qty_object_238;
+ 	Qty* Qty_object_239;
+ 	Qty* Qty_object_240;
+ 	Qty* Qty_object_241;
+ 	Qty* Qty_object_242;
+ 	Qty* Qty_object_243;
+ 	Qty* Qty_object_244;
+ 	Qty* Qty_object_245;
+ 	Qty* Qty_object_246;
+ 	Qty* Qty_object_247;
+ 	Qty* Qty_object_248;
+ 	Qty* Qty_object_249;
+ 	Qty* Qty_object_250;
+ 	Qty* Qty_object_251;
+ 	Qty* Qty_object_252;
+ 	Qty* Qty_object_253;
+ 	Qty* Qty_object_254;
+ 	Qty* Qty_object_255;
+ 	Qty* Qty_object_256;
+ 	Qty* Qty_object_257;
+ 	Qty* Qty_object_258;
+ 	Qty* Qty_object_259;
+ 	Qty* Qty_object_260;
+ 	Qty* Qty_object_261;
+ 	Qty* Qty_object_262;
+ 	Qty* Qty_object_263;
+ 	Qty* Qty_object_264;
+ 	Qty* Qty_object_265;
+ 	Qty* Qty_object_266;
+ 	Qty* Qty_object_267;
+ 	Qty* Qty_object_268;
+ 	Qty* Qty_object_269;
+ 	Qty* Qty_object_270;
+ 	Qty* Qty_object_271;
+ 	Qty* Qty_object_272;
+ 	Qty* Qty_object_273;
+ 	Qty* Qty_object_274;
+ 	Qty* Qty_object_275;
+ 	Qty* Qty_object_276;
+ 	Qty* Qty_object_277;
+ 	Qty* Qty_object_278;
+ 	Qty* Qty_object_279;
+ 	Qty* Qty_object_280;
+ 	Qty* Qty_object_281;
+ 	Qty* Qty_object_282;
+ 	Qty* Qty_object_283;
+ 	Qty* Qty_object_284;
+ 	Qty* Qty_object_285;
+ 	Qty* Qty_object_286;
+ 	Qty* Qty_object_287;
+ 	Qty* Qty_object_288;
+ 	Qty* Qty_object_289;
+ 	Qty* Qty_object_290;
+ 	Qty* Qty_object_291;
+ 	Qty* Qty_object_292;
+ 	Qty* Qty_object_293;
+ 	Qty* Qty_object_294;
+ 	Qty* Qty_object_295;
+ 	Qty* Qty_object_296;
+ 	Qty* Qty_object_297;
+ 	Qty* Qty_object_298;
+ 	Qty* Qty_object_299;
+ 	Qty* Qty_object_300;
+ 	Qty* Qty_object_301;
+ 	Qty* Qty_object_302;
+ 	Qty* Qty_object_303;
+ 	Qty* Qty_object_304;
+ 	Qty* Qty_object_305;
+ 	Qty* Qty_object_306;
+ 	Qty* Qty_object_307;
+ 	Qty* Qty_object_308;
+ 	Qty* Qty_object_309;
+ 	Qty* Qty_object_310;
+ 	Qty* Qty_object_311;
+ 	Qty* Qty_object_312;
+ 	Qty* Qty_object_313;
+ 	Qty* Qty_object_314;
+ 	Qty* Qty_object_315;
+ 	Qty* Qty_object_316;
+ 	Qty* Qty_object_317;
+ 	Qty* Qty_object_318;
+ 	Qty* Qty_object_319;
+ 	Qty* Qty_object_320;
+ 	Qty* Qty_object_321;
+ 	Qty* Qty_object_322;
+ 	Qty* Qty_object_323;
+ 	Qty* Qty_object_324;
+ 	Qty* Qty_object_325;
+ 	Qty* Qty_object_326;
+ 	Qty* Qty_object_327;
+ 	Qty* Qty_object_328;
+ 	Qty* Qty_object_329;
+ 	Qty* Qty_object_330;
+ 	Qty* Qty_object_331;
+ 	Qty* Qty_object_332;
+ 	Qty* Qty_object_333;
+ 	Qty* Qty_object_334;
+ 	Qty* Qty_object_335;
+ 	Qty* Qty_object_336;
+ 	Qty* Qty_object_337;
+ 	Qty* Qty_object_338;
+ 	Qty* Qty_object_339;
+ 	Qty* Qty_object_340;
+ 	Qty* Qty_object_341;
+ 	Qty* Qty_object_342;
+ 	Pty* Pty_object_1;
+ 	Pty* Pty_object_2;
+ 	Pty* Pty_object_3;
+ 	
+ public:
+   PosRpt(){ 
+		SetPxTyp = "1";	
+		BizDt = "2003-09-10T00:00:00";	
+		Acct = "1";	
+		AcctTyp = "1";	
+		ReqTyp = "0";	
+		SetPx = "0.00";	
+		RptID = "541386431";	
+		PriSetPx = "0.00";	
+		Rslt = "0";	
+		Ccy = "USD";	
+       }
+	PosRpt(string SetPxTyp_, string BizDt_, string Acct_, string AcctTyp_, string ReqTyp_, string SetPx_, string RptID_, string PriSetPx_, string Rslt_, string Ccy_, Amt* Amt_, Hdr* Hdr_, Instrmt* Instrmt_, Qty* Qty_1, Qty* Qty_2, Qty* Qty_3, Qty* Qty_4, Qty* Qty_5, Qty* Qty_6, Qty* Qty_7, Qty* Qty_8, Qty* Qty_9, Qty* Qty_10, Qty* Qty_11, Qty* Qty_12, Qty* Qty_13, Qty* Qty_14, Qty* Qty_15, Qty* Qty_16, Qty* Qty_17, Qty* Qty_18, Qty* Qty_19, Qty* Qty_20, Qty* Qty_21, Qty* Qty_22, Qty* Qty_23, Qty* Qty_24, Qty* Qty_25, Qty* Qty_26, Qty* Qty_27, Qty* Qty_28, Qty* Qty_29, Qty* Qty_30, Qty* Qty_31, Qty* Qty_32, Qty* Qty_33, Qty* Qty_34, Qty* Qty_35, Qty* Qty_36, Qty* Qty_37, Qty* Qty_38, Qty* Qty_39, Qty* Qty_40, Qty* Qty_41, Qty* Qty_42, Qty* Qty_43, Qty* Qty_44, Qty* Qty_45, Qty* Qty_46, Qty* Qty_47, Qty* Qty_48, Qty* Qty_49, Qty* Qty_50, Qty* Qty_51, Qty* Qty_52, Qty* Qty_53, Qty* Qty_54, Qty* Qty_55, Qty* Qty_56, Qty* Qty_57, Qty* Qty_58, Qty* Qty_59, Qty* Qty_60, Qty* Qty_61, Qty* Qty_62, Qty* Qty_63, Qty* Qty_64, Qty* Qty_65, Qty* Qty_66, Qty* Qty_67, Qty* Qty_68, Qty* Qty_69, Qty* Qty_70, Qty* Qty_71, Qty* Qty_72, Qty* Qty_73, Qty* Qty_74, Qty* Qty_75, Qty* Qty_76, Qty* Qty_77, Qty* Qty_78, Qty* Qty_79, Qty* Qty_80, Qty* Qty_81, Qty* Qty_82, Qty* Qty_83, Qty* Qty_84, Qty* Qty_85, Qty* Qty_86, Qty* Qty_87, Qty* Qty_88, Qty* Qty_89, Qty* Qty_90, Qty* Qty_91, Qty* Qty_92, Qty* Qty_93, Qty* Qty_94, Qty* Qty_95, Qty* Qty_96, Qty* Qty_97, Qty* Qty_98, Qty* Qty_99, Qty* Qty_100, Qty* Qty_101, Qty* Qty_102, Qty* Qty_103, Qty* Qty_104, Qty* Qty_105, Qty* Qty_106, Qty* Qty_107, Qty* Qty_108, Qty* Qty_109, Qty* Qty_110, Qty* Qty_111, Qty* Qty_112, Qty* Qty_113, Qty* Qty_114, Qty* Qty_115, Qty* Qty_116, Qty* Qty_117, Qty* Qty_118, Qty* Qty_119, Qty* Qty_120, Qty* Qty_121, Qty* Qty_122, Qty* Qty_123, Qty* Qty_124, Qty* Qty_125, Qty* Qty_126, Qty* Qty_127, Qty* Qty_128, Qty* Qty_129, Qty* Qty_130, Qty* Qty_131, Qty* Qty_132, Qty* Qty_133, Qty* Qty_134, Qty* Qty_135, Qty* Qty_136, Qty* Qty_137, Qty* Qty_138, Qty* Qty_139, Qty* Qty_140, Qty* Qty_141, Qty* Qty_142, Qty* Qty_143, Qty* Qty_144, Qty* Qty_145, Qty* Qty_146, Qty* Qty_147, Qty* Qty_148, Qty* Qty_149, Qty* Qty_150, Qty* Qty_151, Qty* Qty_152, Qty* Qty_153, Qty* Qty_154, Qty* Qty_155, Qty* Qty_156, Qty* Qty_157, Qty* Qty_158, Qty* Qty_159, Qty* Qty_160, Qty* Qty_161, Qty* Qty_162, Qty* Qty_163, Qty* Qty_164, Qty* Qty_165, Qty* Qty_166, Qty* Qty_167, Qty* Qty_168, Qty* Qty_169, Qty* Qty_170, Qty* Qty_171, Qty* Qty_172, Qty* Qty_173, Qty* Qty_174, Qty* Qty_175, Qty* Qty_176, Qty* Qty_177, Qty* Qty_178, Qty* Qty_179, Qty* Qty_180, Qty* Qty_181, Qty* Qty_182, Qty* Qty_183, Qty* Qty_184, Qty* Qty_185, Qty* Qty_186, Qty* Qty_187, Qty* Qty_188, Qty* Qty_189, Qty* Qty_190, Qty* Qty_191, Qty* Qty_192, Qty* Qty_193, Qty* Qty_194, Qty* Qty_195, Qty* Qty_196, Qty* Qty_197, Qty* Qty_198, Qty* Qty_199, Qty* Qty_200, Qty* Qty_201, Qty* Qty_202, Qty* Qty_203, Qty* Qty_204, Qty* Qty_205, Qty* Qty_206, Qty* Qty_207, Qty* Qty_208, Qty* Qty_209, Qty* Qty_210, Qty* Qty_211, Qty* Qty_212, Qty* Qty_213, Qty* Qty_214, Qty* Qty_215, Qty* Qty_216, Qty* Qty_217, Qty* Qty_218, Qty* Qty_219, Qty* Qty_220, Qty* Qty_221, Qty* Qty_222, Qty* Qty_223, Qty* Qty_224, Qty* Qty_225, Qty* Qty_226, Qty* Qty_227, Qty* Qty_228, Qty* Qty_229, Qty* Qty_230, Qty* Qty_231, Qty* Qty_232, Qty* Qty_233, Qty* Qty_234, Qty* Qty_235, Qty* Qty_236, Qty* Qty_237, Qty* Qty_238, Qty* Qty_239, Qty* Qty_240, Qty* Qty_241, Qty* Qty_242, Qty* Qty_243, Qty* Qty_244, Qty* Qty_245, Qty* Qty_246, Qty* Qty_247, Qty* Qty_248, Qty* Qty_249, Qty* Qty_250, Qty* Qty_251, Qty* Qty_252, Qty* Qty_253, Qty* Qty_254, Qty* Qty_255, Qty* Qty_256, Qty* Qty_257, Qty* Qty_258, Qty* Qty_259, Qty* Qty_260, Qty* Qty_261, Qty* Qty_262, Qty* Qty_263, Qty* Qty_264, Qty* Qty_265, Qty* Qty_266, Qty* Qty_267, Qty* Qty_268, Qty* Qty_269, Qty* Qty_270, Qty* Qty_271, Qty* Qty_272, Qty* Qty_273, Qty* Qty_274, Qty* Qty_275, Qty* Qty_276, Qty* Qty_277, Qty* Qty_278, Qty* Qty_279, Qty* Qty_280, Qty* Qty_281, Qty* Qty_282, Qty* Qty_283, Qty* Qty_284, Qty* Qty_285, Qty* Qty_286, Qty* Qty_287, Qty* Qty_288, Qty* Qty_289, Qty* Qty_290, Qty* Qty_291, Qty* Qty_292, Qty* Qty_293, Qty* Qty_294, Qty* Qty_295, Qty* Qty_296, Qty* Qty_297, Qty* Qty_298, Qty* Qty_299, Qty* Qty_300, Qty* Qty_301, Qty* Qty_302, Qty* Qty_303, Qty* Qty_304, Qty* Qty_305, Qty* Qty_306, Qty* Qty_307, Qty* Qty_308, Qty* Qty_309, Qty* Qty_310, Qty* Qty_311, Qty* Qty_312, Qty* Qty_313, Qty* Qty_314, Qty* Qty_315, Qty* Qty_316, Qty* Qty_317, Qty* Qty_318, Qty* Qty_319, Qty* Qty_320, Qty* Qty_321, Qty* Qty_322, Qty* Qty_323, Qty* Qty_324, Qty* Qty_325, Qty* Qty_326, Qty* Qty_327, Qty* Qty_328, Qty* Qty_329, Qty* Qty_330, Qty* Qty_331, Qty* Qty_332, Qty* Qty_333, Qty* Qty_334, Qty* Qty_335, Qty* Qty_336, Qty* Qty_337, Qty* Qty_338, Qty* Qty_339, Qty* Qty_340, Qty* Qty_341, Qty* Qty_342, Pty* Pty_1, Pty* Pty_2, Pty* Pty_3){
+	 
+		SetPxTyp = SetPxTyp_;	
+		BizDt = BizDt_;	
+		Acct = Acct_;	
+		AcctTyp = AcctTyp_;	
+		ReqTyp = ReqTyp_;	
+		SetPx = SetPx_;	
+		RptID = RptID_;	
+		PriSetPx = PriSetPx_;	
+		Rslt = Rslt_;	
+		Ccy = Ccy_;	
+	
+		Amt_object = Amt_; 
+		Hdr_object = Hdr_; 
+		Instrmt_object = Instrmt_; 
+		Qty_object_1 = Qty_1; 
+		Qty_object_2 = Qty_2; 
+		Qty_object_3 = Qty_3; 
+		Qty_object_4 = Qty_4; 
+		Qty_object_5 = Qty_5; 
+		Qty_object_6 = Qty_6; 
+		Qty_object_7 = Qty_7; 
+		Qty_object_8 = Qty_8; 
+		Qty_object_9 = Qty_9; 
+		Qty_object_10 = Qty_10; 
+		Qty_object_11 = Qty_11; 
+		Qty_object_12 = Qty_12; 
+		Qty_object_13 = Qty_13; 
+		Qty_object_14 = Qty_14; 
+		Qty_object_15 = Qty_15; 
+		Qty_object_16 = Qty_16; 
+		Qty_object_17 = Qty_17; 
+		Qty_object_18 = Qty_18; 
+		Qty_object_19 = Qty_19; 
+		Qty_object_20 = Qty_20; 
+		Qty_object_21 = Qty_21; 
+		Qty_object_22 = Qty_22; 
+		Qty_object_23 = Qty_23; 
+		Qty_object_24 = Qty_24; 
+		Qty_object_25 = Qty_25; 
+		Qty_object_26 = Qty_26; 
+		Qty_object_27 = Qty_27; 
+		Qty_object_28 = Qty_28; 
+		Qty_object_29 = Qty_29; 
+		Qty_object_30 = Qty_30; 
+		Qty_object_31 = Qty_31; 
+		Qty_object_32 = Qty_32; 
+		Qty_object_33 = Qty_33; 
+		Qty_object_34 = Qty_34; 
+		Qty_object_35 = Qty_35; 
+		Qty_object_36 = Qty_36; 
+		Qty_object_37 = Qty_37; 
+		Qty_object_38 = Qty_38; 
+		Qty_object_39 = Qty_39; 
+		Qty_object_40 = Qty_40; 
+		Qty_object_41 = Qty_41; 
+		Qty_object_42 = Qty_42; 
+		Qty_object_43 = Qty_43; 
+		Qty_object_44 = Qty_44; 
+		Qty_object_45 = Qty_45; 
+		Qty_object_46 = Qty_46; 
+		Qty_object_47 = Qty_47; 
+		Qty_object_48 = Qty_48; 
+		Qty_object_49 = Qty_49; 
+		Qty_object_50 = Qty_50; 
+		Qty_object_51 = Qty_51; 
+		Qty_object_52 = Qty_52; 
+		Qty_object_53 = Qty_53; 
+		Qty_object_54 = Qty_54; 
+		Qty_object_55 = Qty_55; 
+		Qty_object_56 = Qty_56; 
+		Qty_object_57 = Qty_57; 
+		Qty_object_58 = Qty_58; 
+		Qty_object_59 = Qty_59; 
+		Qty_object_60 = Qty_60; 
+		Qty_object_61 = Qty_61; 
+		Qty_object_62 = Qty_62; 
+		Qty_object_63 = Qty_63; 
+		Qty_object_64 = Qty_64; 
+		Qty_object_65 = Qty_65; 
+		Qty_object_66 = Qty_66; 
+		Qty_object_67 = Qty_67; 
+		Qty_object_68 = Qty_68; 
+		Qty_object_69 = Qty_69; 
+		Qty_object_70 = Qty_70; 
+		Qty_object_71 = Qty_71; 
+		Qty_object_72 = Qty_72; 
+		Qty_object_73 = Qty_73; 
+		Qty_object_74 = Qty_74; 
+		Qty_object_75 = Qty_75; 
+		Qty_object_76 = Qty_76; 
+		Qty_object_77 = Qty_77; 
+		Qty_object_78 = Qty_78; 
+		Qty_object_79 = Qty_79; 
+		Qty_object_80 = Qty_80; 
+		Qty_object_81 = Qty_81; 
+		Qty_object_82 = Qty_82; 
+		Qty_object_83 = Qty_83; 
+		Qty_object_84 = Qty_84; 
+		Qty_object_85 = Qty_85; 
+		Qty_object_86 = Qty_86; 
+		Qty_object_87 = Qty_87; 
+		Qty_object_88 = Qty_88; 
+		Qty_object_89 = Qty_89; 
+		Qty_object_90 = Qty_90; 
+		Qty_object_91 = Qty_91; 
+		Qty_object_92 = Qty_92; 
+		Qty_object_93 = Qty_93; 
+		Qty_object_94 = Qty_94; 
+		Qty_object_95 = Qty_95; 
+		Qty_object_96 = Qty_96; 
+		Qty_object_97 = Qty_97; 
+		Qty_object_98 = Qty_98; 
+		Qty_object_99 = Qty_99; 
+		Qty_object_100 = Qty_100; 
+		Qty_object_101 = Qty_101; 
+		Qty_object_102 = Qty_102; 
+		Qty_object_103 = Qty_103; 
+		Qty_object_104 = Qty_104; 
+		Qty_object_105 = Qty_105; 
+		Qty_object_106 = Qty_106; 
+		Qty_object_107 = Qty_107; 
+		Qty_object_108 = Qty_108; 
+		Qty_object_109 = Qty_109; 
+		Qty_object_110 = Qty_110; 
+		Qty_object_111 = Qty_111; 
+		Qty_object_112 = Qty_112; 
+		Qty_object_113 = Qty_113; 
+		Qty_object_114 = Qty_114; 
+		Qty_object_115 = Qty_115; 
+		Qty_object_116 = Qty_116; 
+		Qty_object_117 = Qty_117; 
+		Qty_object_118 = Qty_118; 
+		Qty_object_119 = Qty_119; 
+		Qty_object_120 = Qty_120; 
+		Qty_object_121 = Qty_121; 
+		Qty_object_122 = Qty_122; 
+		Qty_object_123 = Qty_123; 
+		Qty_object_124 = Qty_124; 
+		Qty_object_125 = Qty_125; 
+		Qty_object_126 = Qty_126; 
+		Qty_object_127 = Qty_127; 
+		Qty_object_128 = Qty_128; 
+		Qty_object_129 = Qty_129; 
+		Qty_object_130 = Qty_130; 
+		Qty_object_131 = Qty_131; 
+		Qty_object_132 = Qty_132; 
+		Qty_object_133 = Qty_133; 
+		Qty_object_134 = Qty_134; 
+		Qty_object_135 = Qty_135; 
+		Qty_object_136 = Qty_136; 
+		Qty_object_137 = Qty_137; 
+		Qty_object_138 = Qty_138; 
+		Qty_object_139 = Qty_139; 
+		Qty_object_140 = Qty_140; 
+		Qty_object_141 = Qty_141; 
+		Qty_object_142 = Qty_142; 
+		Qty_object_143 = Qty_143; 
+		Qty_object_144 = Qty_144; 
+		Qty_object_145 = Qty_145; 
+		Qty_object_146 = Qty_146; 
+		Qty_object_147 = Qty_147; 
+		Qty_object_148 = Qty_148; 
+		Qty_object_149 = Qty_149; 
+		Qty_object_150 = Qty_150; 
+		Qty_object_151 = Qty_151; 
+		Qty_object_152 = Qty_152; 
+		Qty_object_153 = Qty_153; 
+		Qty_object_154 = Qty_154; 
+		Qty_object_155 = Qty_155; 
+		Qty_object_156 = Qty_156; 
+		Qty_object_157 = Qty_157; 
+		Qty_object_158 = Qty_158; 
+		Qty_object_159 = Qty_159; 
+		Qty_object_160 = Qty_160; 
+		Qty_object_161 = Qty_161; 
+		Qty_object_162 = Qty_162; 
+		Qty_object_163 = Qty_163; 
+		Qty_object_164 = Qty_164; 
+		Qty_object_165 = Qty_165; 
+		Qty_object_166 = Qty_166; 
+		Qty_object_167 = Qty_167; 
+		Qty_object_168 = Qty_168; 
+		Qty_object_169 = Qty_169; 
+		Qty_object_170 = Qty_170; 
+		Qty_object_171 = Qty_171; 
+		Qty_object_172 = Qty_172; 
+		Qty_object_173 = Qty_173; 
+		Qty_object_174 = Qty_174; 
+		Qty_object_175 = Qty_175; 
+		Qty_object_176 = Qty_176; 
+		Qty_object_177 = Qty_177; 
+		Qty_object_178 = Qty_178; 
+		Qty_object_179 = Qty_179; 
+		Qty_object_180 = Qty_180; 
+		Qty_object_181 = Qty_181; 
+		Qty_object_182 = Qty_182; 
+		Qty_object_183 = Qty_183; 
+		Qty_object_184 = Qty_184; 
+		Qty_object_185 = Qty_185; 
+		Qty_object_186 = Qty_186; 
+		Qty_object_187 = Qty_187; 
+		Qty_object_188 = Qty_188; 
+		Qty_object_189 = Qty_189; 
+		Qty_object_190 = Qty_190; 
+		Qty_object_191 = Qty_191; 
+		Qty_object_192 = Qty_192; 
+		Qty_object_193 = Qty_193; 
+		Qty_object_194 = Qty_194; 
+		Qty_object_195 = Qty_195; 
+		Qty_object_196 = Qty_196; 
+		Qty_object_197 = Qty_197; 
+		Qty_object_198 = Qty_198; 
+		Qty_object_199 = Qty_199; 
+		Qty_object_200 = Qty_200; 
+		Qty_object_201 = Qty_201; 
+		Qty_object_202 = Qty_202; 
+		Qty_object_203 = Qty_203; 
+		Qty_object_204 = Qty_204; 
+		Qty_object_205 = Qty_205; 
+		Qty_object_206 = Qty_206; 
+		Qty_object_207 = Qty_207; 
+		Qty_object_208 = Qty_208; 
+		Qty_object_209 = Qty_209; 
+		Qty_object_210 = Qty_210; 
+		Qty_object_211 = Qty_211; 
+		Qty_object_212 = Qty_212; 
+		Qty_object_213 = Qty_213; 
+		Qty_object_214 = Qty_214; 
+		Qty_object_215 = Qty_215; 
+		Qty_object_216 = Qty_216; 
+		Qty_object_217 = Qty_217; 
+		Qty_object_218 = Qty_218; 
+		Qty_object_219 = Qty_219; 
+		Qty_object_220 = Qty_220; 
+		Qty_object_221 = Qty_221; 
+		Qty_object_222 = Qty_222; 
+		Qty_object_223 = Qty_223; 
+		Qty_object_224 = Qty_224; 
+		Qty_object_225 = Qty_225; 
+		Qty_object_226 = Qty_226; 
+		Qty_object_227 = Qty_227; 
+		Qty_object_228 = Qty_228; 
+		Qty_object_229 = Qty_229; 
+		Qty_object_230 = Qty_230; 
+		Qty_object_231 = Qty_231; 
+		Qty_object_232 = Qty_232; 
+		Qty_object_233 = Qty_233; 
+		Qty_object_234 = Qty_234; 
+		Qty_object_235 = Qty_235; 
+		Qty_object_236 = Qty_236; 
+		Qty_object_237 = Qty_237; 
+		Qty_object_238 = Qty_238; 
+		Qty_object_239 = Qty_239; 
+		Qty_object_240 = Qty_240; 
+		Qty_object_241 = Qty_241; 
+		Qty_object_242 = Qty_242; 
+		Qty_object_243 = Qty_243; 
+		Qty_object_244 = Qty_244; 
+		Qty_object_245 = Qty_245; 
+		Qty_object_246 = Qty_246; 
+		Qty_object_247 = Qty_247; 
+		Qty_object_248 = Qty_248; 
+		Qty_object_249 = Qty_249; 
+		Qty_object_250 = Qty_250; 
+		Qty_object_251 = Qty_251; 
+		Qty_object_252 = Qty_252; 
+		Qty_object_253 = Qty_253; 
+		Qty_object_254 = Qty_254; 
+		Qty_object_255 = Qty_255; 
+		Qty_object_256 = Qty_256; 
+		Qty_object_257 = Qty_257; 
+		Qty_object_258 = Qty_258; 
+		Qty_object_259 = Qty_259; 
+		Qty_object_260 = Qty_260; 
+		Qty_object_261 = Qty_261; 
+		Qty_object_262 = Qty_262; 
+		Qty_object_263 = Qty_263; 
+		Qty_object_264 = Qty_264; 
+		Qty_object_265 = Qty_265; 
+		Qty_object_266 = Qty_266; 
+		Qty_object_267 = Qty_267; 
+		Qty_object_268 = Qty_268; 
+		Qty_object_269 = Qty_269; 
+		Qty_object_270 = Qty_270; 
+		Qty_object_271 = Qty_271; 
+		Qty_object_272 = Qty_272; 
+		Qty_object_273 = Qty_273; 
+		Qty_object_274 = Qty_274; 
+		Qty_object_275 = Qty_275; 
+		Qty_object_276 = Qty_276; 
+		Qty_object_277 = Qty_277; 
+		Qty_object_278 = Qty_278; 
+		Qty_object_279 = Qty_279; 
+		Qty_object_280 = Qty_280; 
+		Qty_object_281 = Qty_281; 
+		Qty_object_282 = Qty_282; 
+		Qty_object_283 = Qty_283; 
+		Qty_object_284 = Qty_284; 
+		Qty_object_285 = Qty_285; 
+		Qty_object_286 = Qty_286; 
+		Qty_object_287 = Qty_287; 
+		Qty_object_288 = Qty_288; 
+		Qty_object_289 = Qty_289; 
+		Qty_object_290 = Qty_290; 
+		Qty_object_291 = Qty_291; 
+		Qty_object_292 = Qty_292; 
+		Qty_object_293 = Qty_293; 
+		Qty_object_294 = Qty_294; 
+		Qty_object_295 = Qty_295; 
+		Qty_object_296 = Qty_296; 
+		Qty_object_297 = Qty_297; 
+		Qty_object_298 = Qty_298; 
+		Qty_object_299 = Qty_299; 
+		Qty_object_300 = Qty_300; 
+		Qty_object_301 = Qty_301; 
+		Qty_object_302 = Qty_302; 
+		Qty_object_303 = Qty_303; 
+		Qty_object_304 = Qty_304; 
+		Qty_object_305 = Qty_305; 
+		Qty_object_306 = Qty_306; 
+		Qty_object_307 = Qty_307; 
+		Qty_object_308 = Qty_308; 
+		Qty_object_309 = Qty_309; 
+		Qty_object_310 = Qty_310; 
+		Qty_object_311 = Qty_311; 
+		Qty_object_312 = Qty_312; 
+		Qty_object_313 = Qty_313; 
+		Qty_object_314 = Qty_314; 
+		Qty_object_315 = Qty_315; 
+		Qty_object_316 = Qty_316; 
+		Qty_object_317 = Qty_317; 
+		Qty_object_318 = Qty_318; 
+		Qty_object_319 = Qty_319; 
+		Qty_object_320 = Qty_320; 
+		Qty_object_321 = Qty_321; 
+		Qty_object_322 = Qty_322; 
+		Qty_object_323 = Qty_323; 
+		Qty_object_324 = Qty_324; 
+		Qty_object_325 = Qty_325; 
+		Qty_object_326 = Qty_326; 
+		Qty_object_327 = Qty_327; 
+		Qty_object_328 = Qty_328; 
+		Qty_object_329 = Qty_329; 
+		Qty_object_330 = Qty_330; 
+		Qty_object_331 = Qty_331; 
+		Qty_object_332 = Qty_332; 
+		Qty_object_333 = Qty_333; 
+		Qty_object_334 = Qty_334; 
+		Qty_object_335 = Qty_335; 
+		Qty_object_336 = Qty_336; 
+		Qty_object_337 = Qty_337; 
+		Qty_object_338 = Qty_338; 
+		Qty_object_339 = Qty_339; 
+		Qty_object_340 = Qty_340; 
+		Qty_object_341 = Qty_341; 
+		Qty_object_342 = Qty_342; 
+		Pty_object_1 = Pty_1; 
+		Pty_object_2 = Pty_2; 
+		Pty_object_3 = Pty_3; 
+       }
+}
+
+class FIXML
+{
+ private:	
+
+	PosRpt* PosRpt_object;
+ 	
+ public:
+   FIXML(){ 
+       }
+	FIXML(PosRpt* PosRpt_){
+	 
+	
+		PosRpt_object = PosRpt_; 
+       }
+}

@@ -1,0 +1,140 @@
+class Order
+{
+	
+	String OrdTyp = "2"; 
+	String Px = "93.25"; 
+	String ClOrdID = "123456"; 
+	String TransactTm = "2001-09-11T09:30:47-05:00"; 
+	String Acct = "26522154"; 
+	String Side = "2"; 
+	Hdr Hdr_object =
+		 new Hdr();
+ 	OrdQty OrdQty_object =
+		 new OrdQty();
+ 	Instrmt Instrmt_object =
+		 new Instrmt();
+ 	
+ 	Order(){
+	}
+
+	Order(String OrdTyp, String Px, String ClOrdID, String TransactTm, String Acct, String Side, Hdr Hdr_, OrdQty OrdQty_, Instrmt Instrmt_){ 
+     
+		this.OrdTyp = OrdTyp;	
+		this.Px = Px;	
+		this.ClOrdID = ClOrdID;	
+		this.TransactTm = TransactTm;	
+		this.Acct = Acct;	
+		this.Side = Side;	
+	  
+		this.Hdr_object = Hdr_; 
+		this.OrdQty_object = OrdQty_; 
+		this.Instrmt_object = Instrmt_; 
+        }
+}
+
+class Sndr
+{
+	
+	String ID = "AFUNDMGR"; 
+	
+ 	Sndr(){
+	}
+
+	Sndr(String ID){ 
+     
+		this.ID = ID;	
+	  
+        }
+}
+
+class Hdr
+{
+	
+	String PosRsnd = "N"; 
+	String Snt = "2001-09-11T09:30:47-05:00"; 
+	String SeqNum = "521"; 
+	String PosDup = "N"; 
+	Sndr Sndr_object =
+		 new Sndr();
+ 	Tgt Tgt_object =
+		 new Tgt();
+ 	
+ 	Hdr(){
+	}
+
+	Hdr(String PosRsnd, String Snt, String SeqNum, String PosDup, Sndr Sndr_, Tgt Tgt_){ 
+     
+		this.PosRsnd = PosRsnd;	
+		this.Snt = Snt;	
+		this.SeqNum = SeqNum;	
+		this.PosDup = PosDup;	
+	  
+		this.Sndr_object = Sndr_; 
+		this.Tgt_object = Tgt_; 
+        }
+}
+
+class OrdQty
+{
+	
+	String Qty = "1000"; 
+	
+ 	OrdQty(){
+	}
+
+	OrdQty(String Qty){ 
+     
+		this.Qty = Qty;	
+	  
+        }
+}
+
+class FIXML
+{
+	
+	Order Order_object =
+		 new Order();
+ 	
+ 	FIXML(){
+	}
+
+	FIXML(Order Order_){ 
+     
+	  
+		this.Order_object = Order_; 
+        }
+}
+
+class Instrmt
+{
+	
+	String Sym = "IBM"; 
+	String IDSrc = "1"; 
+	String ID = "459200101"; 
+	
+ 	Instrmt(){
+	}
+
+	Instrmt(String Sym, String IDSrc, String ID){ 
+     
+		this.Sym = Sym;	
+		this.IDSrc = IDSrc;	
+		this.ID = ID;	
+	  
+        }
+}
+
+class Tgt
+{
+	
+	String ID = "ABROKER"; 
+	
+ 	Tgt(){
+	}
+
+	Tgt(String ID){ 
+     
+		this.ID = ID;	
+	  
+        }
+}

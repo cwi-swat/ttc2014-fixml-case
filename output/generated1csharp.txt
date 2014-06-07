@@ -1,0 +1,120 @@
+class Order{
+	
+	string OrdTyp = "2"; 
+	string Px = "93.25"; 
+	string ClOrdID = "123456"; 
+	string TransactTm = "2001-09-11T09:30:47-05:00"; 
+	string Acct = "26522154"; 
+	string Side = "2"; 
+	Hdr Hdr_object = new Hdr();
+ 	OrdQty OrdQty_object = new OrdQty();
+ 	Instrmt Instrmt_object = new Instrmt();
+ 	
+ 	Order(){
+	}
+
+	Order(string OrdTyp, string Px, string ClOrdID, string TransactTm, string Acct, string Side, Hdr Hdr_, OrdQty OrdQty_, Instrmt Instrmt_){ 
+		this.OrdTyp = OrdTyp;	
+		this.Px = Px;	
+		this.ClOrdID = ClOrdID;	
+		this.TransactTm = TransactTm;	
+		this.Acct = Acct;	
+		this.Side = Side;	
+	
+		this.Hdr_object = Hdr_; 
+		this.OrdQty_object = OrdQty_; 
+		this.Instrmt_object = Instrmt_; 
+       }
+}
+
+class Sndr{
+	
+	string ID = "AFUNDMGR"; 
+	
+ 	Sndr(){
+	}
+
+	Sndr(string ID){ 
+		this.ID = ID;	
+	
+       }
+}
+
+class Hdr{
+	
+	string PosRsnd = "N"; 
+	string Snt = "2001-09-11T09:30:47-05:00"; 
+	string SeqNum = "521"; 
+	string PosDup = "N"; 
+	Sndr Sndr_object = new Sndr();
+ 	Tgt Tgt_object = new Tgt();
+ 	
+ 	Hdr(){
+	}
+
+	Hdr(string PosRsnd, string Snt, string SeqNum, string PosDup, Sndr Sndr_, Tgt Tgt_){ 
+		this.PosRsnd = PosRsnd;	
+		this.Snt = Snt;	
+		this.SeqNum = SeqNum;	
+		this.PosDup = PosDup;	
+	
+		this.Sndr_object = Sndr_; 
+		this.Tgt_object = Tgt_; 
+       }
+}
+
+class OrdQty{
+	
+	string Qty = "1000"; 
+	
+ 	OrdQty(){
+	}
+
+	OrdQty(string Qty){ 
+		this.Qty = Qty;	
+	
+       }
+}
+
+class FIXML{
+	
+	Order Order_object = new Order();
+ 	
+ 	FIXML(){
+	}
+
+	FIXML(Order Order_){ 
+	
+		this.Order_object = Order_; 
+       }
+}
+
+class Instrmt{
+	
+	string Sym = "IBM"; 
+	string IDSrc = "1"; 
+	string ID = "459200101"; 
+	
+ 	Instrmt(){
+	}
+
+	Instrmt(string Sym, string IDSrc, string ID){ 
+		this.Sym = Sym;	
+		this.IDSrc = IDSrc;	
+		this.ID = ID;	
+	
+       }
+}
+
+class Tgt{
+	
+	string ID = "ABROKER"; 
+	
+ 	Tgt(){
+	}
+
+	Tgt(string ID){ 
+		this.ID = ID;	
+	
+       }
+}
